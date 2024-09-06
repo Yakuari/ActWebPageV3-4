@@ -13,7 +13,7 @@
 
         public function addAdmin($csfr_token, $username, $email, $password){
             $stmt = $this->conn->prepare("SELECT * FROM user WHERE email = :email");
-            $stmt->execute(array(":email => $email"));
+            $stmt->execute(array(":email" => $email));
 
             if($stmt->rowCount() > 0){
                 echo "<script>alert('Email already exists.'); window.location.href = '../../../';</script>";
@@ -133,5 +133,6 @@
         $adminSignOut = new ADMIN();
         $adminSignOut-> adminSignout();
     }
+   
 
 ?>
