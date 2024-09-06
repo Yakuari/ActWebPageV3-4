@@ -8,9 +8,9 @@
 
     //CSRF TOKEN
     if(empty($_SESSION['csrf_token'])) {
-        $crsf_token = bin2hex(random_bytes(32));
-        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+        $csrf_token = bin2hex(random_bytes(32));
+        $_SESSION['csrf_token'] = $csrf_token;
     } else {
-        $crsf_token = $_SESSION['csrf_token'];
+        $csrf_token = $_SESSION['csrf_token'];
     }
 ?>

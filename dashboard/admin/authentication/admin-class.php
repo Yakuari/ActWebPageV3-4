@@ -11,7 +11,7 @@
             $this->conn = $database->dbConnection();
         }
 
-        public function addAdmin($csfr_token, $username, $email, $password){
+        public function addAdmin($csrf_token, $username, $email, $password){
             $stmt = $this->conn->prepare("SELECT * FROM user WHERE email = :email");
             $stmt->execute(array(":email" => $email));
 
@@ -46,7 +46,7 @@
 
         }
 
-        public function adminSignin($email, $password, $csfr_token){
+        public function adminSignin($email, $password, $csrf_token){
             try{
                 if(!isset($csrf_token) || !hash_equals($_SESSION['csrf_token'], $csrf_token)){
                     echo "<script>alert('Invalid CSRF token.'); window.location.href = '../../../';</script>";
@@ -55,7 +55,7 @@
                 unset($_SESSION['csrf_token']);
                 
                 $stmt = $this->conn->prepare('SELECT * FROM user WHERE email = :email');
-                $stmt->execute(array(":email => $email"));
+                $stmt->execute(array(":email" => $email));
                 $userRow = $stmt->fetch(PDO::FETCH_ASSOC); 
 
                 if($stmt->rowCount() == 1 && $userRow['password'] == md5($password)){
@@ -109,23 +109,23 @@
 
     }
 
-    if(isset($_POST['btn_signup'])){
-        $csfr_token = trim($_POST['csfr_token']);
+    if(isset($_POST['btn-signup'])){
+        $csrf_token = trim($_POST['csrf_token']);
         $username = trim($_POST['username']);
         $email = trim($_POST['email']);
         $password = trim($_POST['password']);
         
         $addADMIN = new ADMIN();
-        $addADMIN->addAdmin($csfr_token, $username, $email, $password);
+        $addADMIN->addAdmin($csrf_token, $username, $email, $password);
     }
 
-    if(isset($_POST['btn_signin'])){
-        $csfr_token = trim($_POST['csfr_token']);
+    if(isset($_POST['btn-signin'])){
+        $csrf_token = trim($_POST['csrf_token']);
         $email = trim($_POST['email']);
         $password = trim($_POST['password']);
 
         $adminSignIn = new ADMIN();
-        $adminSignIn->adminSignin( $csfr_token, $email, $password);
+        $adminSignIn->adminSignin($email, $password, $csrf_token);
     }
 
     if(isset($_GET['admin_signout'])){

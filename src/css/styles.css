@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+/* Reset CSS */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Variables */
+:root {
+    --main-color: #2c2c2c;
+    --sub-color: #efefef;
+    --text-color: #000000;
+    --main-font: "Montserrat", sans-serif;
+    --button-color: #02B757;
+}
+
+/* Header and Navigation */
+header {
+    background: var(--main-color);
+    padding: 10px;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 75px;
+    background-color: var(--main-color);
+}
+
+nav form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-right: 200px;
+}
+
+nav input{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: var(--main-font);
+    color: var(--text-color);
+}
+
+nav button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    font-family: var(--main-font);
+    background-color: var(--button-color);
+    color: var(--sub-color);
+}
+
+nav button:hover{
+    background-color: #02823E;
+}
+
+/* Main content */
+main {
+    display: flex;
+    justify-content: space-between;
+    padding: 200px;
+}
+
+.content {
+    width: 60%;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-family: var(--main-font);
+    color: var(--text-color);
+}
+
+p {
+    font-family: var(--main-font);
+    color: var(--text-color);
+}
+
+/* Registration Box */
+.box-right {
+    margin-top: -100px;
+    width: 35%;
+    height: 350px;
+    background-color: var(--sub-color);
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.box-right h2 {
+    text-align: center;
+    font-family: var(--main-font);
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.box-right form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}   
+
+.box-right form button {
+    padding: 10px;
+    width: 100%;
+    font-family: var(--main-font);
+    color: var(--sub-color);
+    background-color: var(--button-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.box-right form button:hover{
+    background-color: #02823E;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--main-color);
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-family: var(--main-font);
+}
+
+footer p{
+    color: var(--sub-color);
+}

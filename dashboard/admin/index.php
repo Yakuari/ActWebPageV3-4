@@ -1,9 +1,9 @@
 <?php 
-    require_once 'autentication/admin-class.php';
+    require_once 'authentication/admin-class.php';
 
     $admin = new ADMIN();
     if (!$admin->isUserLoggedIn()) {
-        $admin->redirect('../../');
+        $admin->redirect();
     }
 
     $stmt = $admin->runQuery("SELECT * FROM user WHERE id = :id");
@@ -18,7 +18,7 @@
     <title>ADMIN DASHBOARD</title>
 </head>
 <body>
-    <h1> Welcome <?php echo $user_data['email']?></h1>
-    <button><a href="autentication/admin-class.php?admin_signout">SIGN OUT</a></button>
+    <h1> Hello, <?php echo $user_data['username']?></h1>
+    <button><a href="authentication/admin-class.php?admin_signout">SIGN OUT</a></button>
 </body>
 </html>
