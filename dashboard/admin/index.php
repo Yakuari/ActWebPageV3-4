@@ -3,7 +3,7 @@
 
     $admin = new ADMIN();
     if (!$admin->isUserLoggedIn()) {
-        $admin->redirect('../../');
+        $admin->redirect("../../");
     }
 
     $stmt = $admin->runQuery("SELECT * FROM user WHERE id = :id");
