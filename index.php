@@ -13,9 +13,11 @@
 <body>
     <header>
         <nav>
-            <form action="dashboard/admin/authentication/admin-class.php" method="POST"> 
+            <form action="dashboard/authentication-class.php" method="POST"> 
                 <input type="hidden" name="csrf_token" value="<?php echo $csrf_token ?>">
                 <input type="email" name="email" placeholder="Email" required>
+                <form name="testForm" action="passwordValidationController" method="post">
+                <a href="forgot-password.php">Forgot password?</a>
                 <input type="password" name="password" placeholder="Password" required>
                 <button type="submit" name="btn-signin">Sign-In!</button>
             </form>
@@ -30,7 +32,7 @@
 
         <aside class="box-right">
             <h2>Register Here</h2>
-            <form action="dashboard/admin/authentication/admin-class.php" method="POST"> 
+            <form action="dashboard/authentication-class.php" method="POST"> 
             <input type="hidden" name="csrf_token" value="<?php echo $csrf_token ?>">
                 <input type="text" name="username" placeholder="Enter Username" required><br>
                 <input type="email" name="email" placeholder="Enter Email" required><br>

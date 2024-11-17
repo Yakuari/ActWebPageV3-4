@@ -59,6 +59,10 @@ nav button:hover{
     background-color: #02823E;
 }
 
+nav a {
+
+}
+
 /* Main content */
 main {
     display: flex;
