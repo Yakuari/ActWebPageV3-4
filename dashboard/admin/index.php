@@ -1,7 +1,7 @@
 <?php 
-    require_once 'authentication/admin-class.php';
+    require_once '../authentication-class.php';
 
-    $admin = new ADMIN();
+    $admin = new Authentication();
     if (!$admin->isUserLoggedIn()) {
         $admin->redirect();
     }
@@ -35,7 +35,7 @@
                 <li class="settings-dropdown">
                     <a href="#" id="settings-btn" class="settings-btn">⚙ Settings</a>
                     <div id="settings-content" class="settings-content">
-                        <a href="authentication/admin-class.php?admin_signout">Logout</a>
+                        <a href="../authentication-class.php?admin_signout">Logout</a>
                     </div>
                 </li>
             </ul>
