@@ -17,9 +17,9 @@
                 <input type="hidden" name="csrf_token" value="<?php echo $csrf_token ?>">
                 <input type="email" name="email" placeholder="Email" required>
                 <form name="testForm" action="passwordValidationController" method="post">
-                <a href="forgot-password.php">Forgot password?</a>
                 <input type="password" name="password" placeholder="Password" required>
                 <button type="submit" name="btn-signin">Sign-In!</button>
+                <a href="forgot-password.php">Forgot password?</a>
             </form>
         </nav>
     </header>

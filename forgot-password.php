@@ -8,21 +8,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forgot Password</title>
-    <link rel="stylesheet" href="src/css/styles2.css">
 </head>
 <body>
-<main>
-    <div class="wrapper-main">
-        <section class="section-default">
+    <main>
+        <div class="wrapper-main">
+            <section class="section-default">
             <h1>Reset your password</h1>
-            <p>We will send email for your new password</p>
-            <form action="dashboard/authentication-class.php" method="POST">
-                <input type="email" name="email" placeholder="New Password" Required>
+            <p>We will send email to reset your password</p>
+                <form action="dashboard/authentication-class.php" method="POST">
+                <input type="email" name="email" placeholder="ENTER YOUR EMAIL" Required>
                 <br>
-                <button type="submit" name="find_email"> Reset </button>
+                <button type="submit" name="find_email"> SEND EMAIL </button>
             </form>
-        </section>
-    </div>
-</main>
+            </section>
+        </div>
+    </main>
 </body>
 </html>
