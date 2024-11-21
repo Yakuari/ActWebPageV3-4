@@ -160,6 +160,7 @@ footer p {
     color: var(--sub-color);
 }
 
+
 body, html {
     margin: 0;
     padding: 0;
@@ -173,7 +174,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url('../img/gym3.jpg') no-repeat center center/cover;
+    background: url('../src/img/gym1.jpg') no-repeat center center/cover;
 }
 
 .wrapper-main {
