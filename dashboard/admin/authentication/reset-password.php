@@ -15,18 +15,35 @@
         exit();
    }
 ?>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../src/css/styles2.css">
+    <title>Reset Password</title>
+    <style>
+        main {
+            background-image: url('../../../src/img/Arnold.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
 <main>
     <div class="wrapper-main">
         <section class="section-default">
             <h1>Change your password</h1>
-            <p>Change your password</p>
+            <p>Enter your new password</p>
             <form action="../../authentication-class.php" method="POST">
-                <input type="password" name="newPass" placeholder="Change your password" Required>
+                <input type="password" name="newPass" placeholder="Password" Required>
                 <input type="hidden" name="id" value="<?php echo $_GET['id']?>" />
                 <br>
-                <button type="submit" name="change_pass"> change your password! </button>
+                <button type="submit" name="change_pass"> Update Password </button>
             </form>
         </section>
     </div>
 </main>
+</body>
+</html>
