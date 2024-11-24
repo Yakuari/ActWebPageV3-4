@@ -1,22 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
-/* Reset CSS */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* Variables */
 :root {
     --main-color: #2c2c2c;
     --sub-color: #efefef;
     --text-color: #000000;
     --main-font: "Montserrat", sans-serif;
-    --button-color: #02B757;
+    --button-color:#273ca3;
 }
 
-/* Header and Navigation */
+body {
+    background-image: url(images/backgroundd.jpg);
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
 header {
     background: var(--main-color);
     padding: 10px;
@@ -24,10 +30,63 @@ header {
 
 nav {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
-    height: 75px;
+    padding: 10px 20px;
     background-color: var(--main-color);
+    position:relative;
+    
+}
+
+/* Forgot password link */
+nav a[href="forgot-password.php"] {
+    color: #5d76f0;
+    text-decoration: none;  
+    font-family: var(--main-font);  
+    padding: 5px 10px;  
+    border-radius: 5px;  
+    transition: background-color 0.3s ease;  
+}
+
+nav a[href="forgot-password.php"]:hover {
+    background-color: var(--button-color);  
+    color: white;
+}
+
+.logo{
+    height: 60px;
+    width: auto;
+    padding: 0 0 0px 15px;
+    position: absolute;
+    background-color: transparent;
+    filter: brightness(1.2) contrast(1.3);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    padding: 10px 0 0 0;
+    gap: 20px;
+    transform: translateX(50px); /* Move them to the right */   
+}
+
+.nav-links a {
+    display: flex;
+    text-decoration: none;
+    padding-left: 75px;
+    margin: 0px;
+    font-family: var(--main-font);
+    color:#5d76f0;
+}
+
+.nav-links img:hover {
+    background-color: transparent;
+    text-decoration: none;
+} 
+
+.nav-links a:hover {
+    color: white;  
+    border-radius: 5px;  
 }
 
 nav form {
@@ -37,7 +96,7 @@ nav form {
     margin-right: 200px;
 }
 
-nav input{
+nav input {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -55,11 +114,10 @@ nav button {
     color: var(--sub-color);
 }
 
-nav button:hover{
-    background-color: #02823E;
+nav button:hover {
+    background-color: var(--button-color);
 }
 
-/* Main content */
 main {
     display: flex;
     justify-content: space-between;
@@ -68,25 +126,28 @@ main {
 
 .content {
     width: 60%;
+    font-size: 15px;
+    color: white; /* Ensure text is white */
+    padding-top: 100px;
 }
+
 
 h1 {
     margin-bottom: 20px;
     font-family: var(--main-font);
-    color: var(--text-color);
+    color: white;
 }
 
 p {
     font-family: var(--main-font);
-    color: var(--text-color);
+    color: white;
 }
 
 /* Registration Box */
 .box-right {
-    margin-top: -100px;
     width: 35%;
     height: 350px;
-    background-color: var(--sub-color);
+    background-color: #333540;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -119,21 +180,20 @@ p {
 }
 
 .box-right form button:hover{
-    background-color: #02823E;
+    background-color: var(--button-color);
 }
 
 /* Footer */
 footer {
-    text-align: center;
-    padding: 20px;
-    background-color: var(--main-color);
+    background-color: #000;
     color: #fff;
-    position: relative;
-    bottom: 0;
+    text-align: center;
+    padding: 1rem 0;
     width: 100%;
-    font-family: var(--main-font);
+    font-size: 0.9rem;
+    position: absolute;
+    bottom: 0;
 }
-
 footer p{
     color: var(--sub-color);
 }
