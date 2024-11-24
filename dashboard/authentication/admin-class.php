@@ -1,9 +1,11 @@
 <?php
 
+require_once __DIR__. '/../../vendor/autoload.php'; // PHPMailer autoload
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require_once __DIR__. '/../../vendor/autoload.php'; // PHPMailer autoload
+
 require_once __DIR__. '/../../database/signUp.query.php';
 
 
