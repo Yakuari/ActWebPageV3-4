@@ -49,7 +49,7 @@
                 </div>
 
                 <!-- Button for Form -->
-                 <form action="#" method="get">
+                 <form action="./buy-subscription.php" method="get">
                     <button type="submit" value="3">Buy</button>
                  </form>
             </div>
@@ -90,8 +90,8 @@
                 </div>
 
                 <!-- Button for Form -->
-                <form action="#" method="get">
-                    <button type="submit" value="3">Buy</button>
+                <form action="./buy-subscription.php" method="get">
+                    <button type="submit" value="6">Buy</button>
                 </form>
             </div>
 
@@ -132,8 +132,8 @@
                 </div>
 
                 <!-- Button for Form -->
-                <form action="#" method="get">
-                    <button type="submit" value="3">Buy</button>
+                <form action="./buy-subscription.php" method="get">
+                    <button type="submit" value="12">Buy</button>
                 </form>
             </div>
 
