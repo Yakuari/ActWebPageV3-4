@@ -1,0 +1,23 @@
+.subscriptions {
+    display: flex;
+    justify-content: space-around;
+}
+
+.subscription {
+    padding: 50px;
+    border: 1px gray solid;
+    border-radius: 10px;
+}
+/* 
+ul {
+    list-style-type: none;
+} */
+
+.price {
+    display: flex;
+    justify-content: space-between;
+}
+
+.totaldiscounted {
+    font-size: 25px;
+}
