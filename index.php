@@ -1,7 +1,3 @@
-<?php 
-    include_once 'config/settings-configuration.php'; 
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,26 +11,25 @@
         <nav>
 
         <div class="logo-container">
-            <img src="src/css/images/logo1.png" alt="logo" class="logo">
+            <img src="src/css/images/logo.png" alt="logo" class="logo">
         <span class="logo-name">Iron Forge Gym</span>
         </div>
 
             <div class="nav-container">
-                <ul class="nav-links">
-                    <li><a href="index.php">Home</a></li>
-                    <li>Program</=></li>
-                    <li>Subscription</a></li>
-                    <li>Book Online</a></li>
-                    <li>About Us</a></li>
-                </ul>
+            <ul class="nav-links">
+                <li><a href="index.php">Home</a></li>
+                <li>Program</a></li>
+                <li>Subscription</a></li>
+                <li>About Us</a></li>
+                <li>Contacts</a></li>
+            </ul>
 
-                <!-- Navigation buttons for Login and Sign Up -->
-                <div class="nav-buttons">
+            <!-- Navigation buttons for Login and Sign Up -->
+            <div class="nav-buttons">
                     <button id="show-login">Sign in</button>
                     <button id="show-signup">Sign Up</button>
-                </div>
             </div>
-
+        </div>
 
         </nav>
     </header>
@@ -43,13 +38,13 @@
     <div class="popup login-popup">
         <div class="close-btn">&times;</div>
         <div class="form">
-            <form action="dashboard/authentication-class.php" method="POST">
+            <form action="config/system_config_signIn.php" method="POST">
                 <h2>Sign In</h2>
                 <div class="form-element">
                     <input type="email" name="email" placeholder="Email" required>
                 </div>
                 <div class="form-element">
-                    <input type="password" name="password" placeholder="Password" required>
+                <input type="password" name="password" placeholder="Password" required>
                 </div>
                 <button type="submit">Sign In</button>
                 <div class="form-element">
@@ -63,7 +58,7 @@
     <div class="popup signup-popup">
         <div class="close-btn">&times;</div>
         <div class="form">
-            <form action="dashboard/signup-class.php" method="POST">
+            <form action="config/system_config_signup.php" method="POST">
                 <h2>Register Here</h2>
                 <div class="form-element">
                     <input type="text" name="username" placeholder="Username" required>
@@ -73,20 +68,26 @@
                 </div>
                 <div class="form-element">
                     <input type="password" name="password" placeholder="Password" required>
+                    <select name="type">
+                    <option value="manager">Manager</option>
+                    <option value="user">User</option>
+                </select><br>
                 </div>
                 <button type="submit">Sign Up</button>
             </form>
         </div>
     </div>
 
+
     <main>
         <section class="content">
             <h1>Welcome to Iron Forge Gym,</h1>
-            <p>Your fitness journey starts here. From effortless class bookings to personalized progress tracking,
-            we've got everything you need to stay on top of your game.
-            Explore, engage, and unlock your full potential.
+            <p>Your fitness journey starts here. From effortless class bookings to personalized progress tracking, 
+            we’ve got everything you need to stay on top of your game. 
+            Explore, engage, and unlock your full potential. 
             Remember, strong today, stronger tomorrow!</p>
         </section>
+
     </main>
 
     <script src="src/js/script1.js"></script>
