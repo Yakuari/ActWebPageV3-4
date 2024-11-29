@@ -1,3 +1,7 @@
+<?php 
+    include_once 'config/settings-configuration.php'; 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,61 +13,82 @@
 <body>
     <header>
         <nav>
-            <img src="src/css/images/file.png" alt="logo" class="logo">
-            <ul class="nav-links">
-                <li><a href="home.php">Home</a></li>
-                <li><a href="program.php">Program</a></li>
-                <li><a href="subscription.php">Subscription</a></li>
-                <li><a href="about-us.php">About Us</a></li>
-                <li><a href="contacts.php">Contacts</a></li>
-            </ul>
-            <form action="config/system_config_signIn.php" method="POST">
-                <input type="hidden" name="csrf_token" value="<?php echo $csrf_token ?>">
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="password" name="password" placeholder="Password" required>
-                <button type="submit" name="btn-signin">SIGN-IN!</button>
-                <a href="forgot-password.php">FORGOT PASSWORD?</a>
-            </form>
+
+        <div class="logo-container">
+            <img src="src/css/images/logo1.png" alt="logo" class="logo">
+        <span class="logo-name">Iron Forge Gym</span>
+        </div>
+
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="index.php">Home</a></li>
+                    <li>Program</=></li>
+                    <li>Subscription</a></li>
+                    <li>Book Online</a></li>
+                    <li>About Us</a></li>
+                </ul>
+
+                <!-- Navigation buttons for Login and Sign Up -->
+                <div class="nav-buttons">
+                    <button id="show-login">Sign in</button>
+                    <button id="show-signup">Sign Up</button>
+                </div>
+            </div>
+
+
         </nav>
     </header>
 
+    <!-- Login Popup -->
+    <div class="popup login-popup">
+        <div class="close-btn">&times;</div>
+        <div class="form">
+            <form action="dashboard/authentication-class.php" method="POST">
+                <h2>Sign In</h2>
+                <div class="form-element">
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-element">
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit">Sign In</button>
+                <div class="form-element">
+                    <a href="forgot-password.php">FORGOT PASSWORD?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Signup Popup -->
+    <div class="popup signup-popup">
+        <div class="close-btn">&times;</div>
+        <div class="form">
+            <form action="dashboard/signup-class.php" method="POST">
+                <h2>Register Here</h2>
+                <div class="form-element">
+                    <input type="text" name="username" placeholder="Username" required>
+                </div>
+                <div class="form-element">
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-element">
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
     <main>
         <section class="content">
-            <h1>Welcome to [Gym Name],</h1>
-            <p>Your fitness journey starts here. From effortless class bookings to personalized progress tracking, 
-            we’ve got everything you need to stay on top of your game. 
-            Explore, engage, and unlock your full potential. 
+            <h1>Welcome to Iron Forge Gym,</h1>
+            <p>Your fitness journey starts here. From effortless class bookings to personalized progress tracking,
+            we've got everything you need to stay on top of your game.
+            Explore, engage, and unlock your full potential.
             Remember, strong today, stronger tomorrow!</p>
-        </section>
-
-        <aside class="box-right">
-            <h2>Register Here</h2>
-            <form action="config/system_config_signup.php" method="POST">
-                <input type="hidden" name="csrf_token" value="<?php echo $csrf_token ?>">
-                <input type="text" name="username" placeholder="Enter Username" required><br>
-                <input type="email" name="email" placeholder="Enter Email" required><br>
-                <input type="password" name="password" placeholder="Enter Password" required><br>
-                <select name="type">
-                    <option value="manager">Manager</option>
-                    <option value="user">User</option>
-                </select><br>
-                <button type="submit" name="btn-signup">SIGN-UP!</button>
-            </form>
-        </aside>
-
-        <section class="box-left">
-            <h1>Sign In</h1>
-            <form action="config/system_config_signIn.php" method="POST">
-                <input type="hidden" name="csrf_token" value="<?php echo $csrf_token ?>">
-                <input type="email" name="email" placeholder="Enter Email" required><br>
-                <input type="password" name="password" placeholder="Enter Password" required><br>
-                <button type="submit" name="btn-signin">Sign In</button>
-            </form>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Your Website | All Rights Reserved</p>
-    </footer>
+    <script src="src/js/script1.js"></script>
 </body>
 </html>
