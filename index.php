@@ -3,34 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test</title>
+    <title>Iron Forge Gym</title>
     <link rel="stylesheet" href="src/css/styles.css">
+    <style>
+        
+    </style>
 </head>
 <body>
     <header>
         <nav>
-
-        <div class="logo-container">
-            <img src="src/css/images/logo.png" alt="logo" class="logo">
-        <span class="logo-name">Iron Forge Gym</span>
-        </div>
-
+            <div class="logo-container">
+                <img src="src/css/images/logo.png" alt="logo" class="logo">
+                <span class="logo-name">Iron Forge Gym</span>
+            </div>
             <div class="nav-container">
-            <ul class="nav-links">
-                <li><a href="index.php">Home</a></li>
-                <li>Program</a></li>
-                <li>Subscription</a></li>
-                <li>About Us</a></li>
-                <li>Contacts</a></li>
-            </ul>
-
-            <!-- Navigation buttons for Login and Sign Up -->
-            <div class="nav-buttons">
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Program</a></li>
+                    <li><a href="#">Subscription</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contacts</a></li>
+                </ul>
+                <div class="nav-buttons">
                     <button id="show-login">Sign in</button>
                     <button id="show-signup">Sign Up</button>
+                </div>
             </div>
-        </div>
-
         </nav>
     </header>
 
@@ -44,7 +42,7 @@
                     <input type="email" name="email" placeholder="Email" required>
                 </div>
                 <div class="form-element">
-                <input type="password" name="password" placeholder="Password" required>
+                    <input type="password" name="password" placeholder="Password" required>
                 </div>
                 <button type="submit">Sign In</button>
                 <div class="form-element">
@@ -69,25 +67,23 @@
                 <div class="form-element">
                     <input type="password" name="password" placeholder="Password" required>
                     <select name="type">
-                    <option value="manager">Manager</option>
-                    <option value="user">User</option>
-                </select><br>
+                        <option value="manager">Manager</option>
+                        <option value="user">User</option>
+                    </select><br>
                 </div>
                 <button type="submit">Sign Up</button>
             </form>
         </div>
     </div>
 
-
-    <main>
+    <main id="home">
         <section class="content">
             <h1>Welcome to Iron Forge Gym,</h1>
-            <p>Your fitness journey starts here. From effortless class bookings to personalized progress tracking, 
-            we’ve got everything you need to stay on top of your game. 
-            Explore, engage, and unlock your full potential. 
+            <p>Your fitness journey starts here. From effortless class bookings to personalized progress tracking,
+            we've got everything you need to stay on top of your game.
+            Explore, engage, and unlock your full potential.
             Remember, strong today, stronger tomorrow!</p>
         </section>
-
     </main>
 
     <script src="src/js/script1.js"></script>

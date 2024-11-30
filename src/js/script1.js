@@ -41,3 +41,40 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Smooth scrolling for home link
+    const homeLink = document.querySelector('.nav-links li a[href="index.php"]');
+    
+    if (homeLink) {
+        homeLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // Popup functionality
+    const loginBtn = document.getElementById('show-login');
+    const signupBtn = document.getElementById('show-signup');
+    const loginPopup = document.querySelector('.login-popup');
+    const signupPopup = document.querySelector('.signup-popup');
+    const closeButtons = document.querySelectorAll('.close-btn');
+
+    loginBtn.addEventListener('click', () => {
+        loginPopup.classList.add('active');
+    });
+
+    signupBtn.addEventListener('click', () => {
+        signupPopup.classList.add('active');
+    });
+
+    closeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            loginPopup.classList.remove('active');
+            signupPopup.classList.remove('active');
+        });
+    });
+});
