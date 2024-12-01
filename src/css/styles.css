@@ -439,3 +439,103 @@ main {
 .contact-section .contact-info p {
     margin: 10px 0;
 }
+/* subscriptions */
+.subscription-link {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #FFD700; 
+    font-size: 2.5em;
+    margin-bottom: 5px;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    justify-content: center;
+
+}
+
+.slider-content {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    
+}
+
+.subscription {
+    flex: 0 0 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+    background-color: #333; 
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.subscription h2, .subscription h3 {
+    color: #FFD700;
+}
+
+.subscription ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.subscription ul li {
+    margin: 5px 0;
+}
+
+.price {
+    background-color: #444;
+    border-radius: 5px;
+    margin: 15px 0;
+    padding: 10px;
+}
+
+.price p {
+    margin: 5px 0;
+}
+
+button {
+    background-color: #FFD700; 
+    color: black;
+    font-size: 1.2em;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e5c100;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.left {
+    left: 10px;
+}
+
+.right {
+    right: 10px;
+}
+
+.arrow:hover {
+    background-color: rgba(0, 0, 0, 0.7); 
+}
