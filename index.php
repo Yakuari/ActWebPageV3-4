@@ -217,5 +217,38 @@
             sliderContent.style.transform = `translateX(${newTransformValue}%)`;
         }
     </script>
+
+    <!-- Program Section -->
+    <div class="booking_section" id="booking">
+    <div class="booking_top">
+        <h1>Make a Booking</h1>
+        <p>Unlock Your Full Potential and Transform Your Fitness Journey – Book Your Spot at Our Gym Today and Start Achieving Your Goals!</p>
+    </div>
+
+    <div class="booking_form">
+        <form action="#" method="post">
+            <div class="booking-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" required>
+            </div>
+            <div class="booking-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" name="phone" pattern="[0-9]{10}" required>
+            </div>
+            <div class="booking-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" required>
+            </div>
+            <div class="booking-group">
+                <label for="date">Date</label>
+                <input type="date" name="date" required>
+            </div>
+            <div class="booking-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 </body>
 </html>
