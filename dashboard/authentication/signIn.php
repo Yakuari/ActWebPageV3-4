@@ -28,6 +28,10 @@ class signIn extends signInQuery {
             // Redirect to User dashboard or page
             echo "<script>alert('Welcome User'); window.location.href = '../user.php';</script>";
             exit();
+        } elseif ($_SESSION["user_role"] === "admin") {
+            // Redirect to Admin dashboard or page
+            echo "<script>alert('Welcome Admin'); window.location.href = '../database/admin-dashboard-class.php';</script>";
+            exit();
         } else {
             // Redirect if the user type is unrecognized
             echo "<script>alert('error'); window.location.href = '../';</script>";
