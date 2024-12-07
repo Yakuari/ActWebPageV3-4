@@ -13,7 +13,7 @@
     <header>
         <nav>
             <div class="logo-container">
-                <a href="index.php">
+                <a href="#home">
                 <img src="src/css/images/logo.png" alt="logo" class="logo">
                 </a>
                 <span class="logo-name">Iron Forge Gym</span>
@@ -78,8 +78,6 @@
         </div>
     </div>
 
-    <h1>Welcome User</h1>
-
     <main id="home">
         <section class="content">
             <h1>Welcome to Iron Forge Gym,</h1>
@@ -98,17 +96,17 @@
         </div>
         <section class="program-section">
             <div class="program-link">
-            <a href="bodybuilding.php" class="link">
+            <a href="program/bodybuilding.php" class="link">
                 <h1> Bodybuilding Programs</h1>
                 <p>Designed to help you build muscle, improve strength, and sculpt your physique with tailored workouts and expert guidance.</p>
             </a>
 
-            <a href="fitness.php" class="link">
+            <a href="program/fitness.php" class="link">
                 <h1>Fitness Challenges</h1>
                 <p>Engaging and fun competitions that motivate you to break barriers, improve performance, and achieve milestones.</p>
             </a>
 
-            <a href="weightloss.php" class="link">
+            <a href="program/weightloss.php" class="link">
                 <h1>Weight Loss Programs</h1>
                 <p>Focused on shedding pounds and boosting confidence through customized training, balanced nutrition, and ongoing support.</p>
             </a>
