@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2024 at 04:40 AM
+-- Generation Time: Dec 11, 2024 at 02:30 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `itelec-finals`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bookings`
+--
+
+CREATE TABLE `bookings` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `phone` varchar(15) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `booking_date` date NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `bookings`
+--
+
+INSERT INTO `bookings` (`id`, `name`, `phone`, `email`, `booking_date`, `created_at`) VALUES
+(11, 'jayson dominguez', '09288715990', 'dominguezstephen01@gmail.com', '2024-10-01', '2024-12-11 07:50:05');
 
 -- --------------------------------------------------------
 
@@ -67,8 +89,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `user_uid`, `user_pass`, `user_email`, `user_role`, `user_amount`, `user_month`, `created_at`, `expire_at`, `status`) VALUES
 (4, 'jayson', '$2y$10$gy1Z5vqRaU49hY01191WUOSXJtrEKqvc1LKvv5trAeEAq55luUyaW', 'dominguezstephen01@gmail.com', 'admin', 16000, '12', '2024-12-04 10:07:47', '2025-11-29 03:12:34', NULL),
-(15, 'bagnit', '$2y$10$dbMdq26yn6mmhikUfOwD1.uo6DHQC5PctFHRfCqKs6gBkaChzbqKK', 'wrenchnerbangit@gmail.com', 'user', 1500, '1', '2024-12-04 14:13:35', '2025-01-04 04:50:09', 'accepted'),
-(28, 'stephen', '$2y$10$BcpJIy4I/0MW3TsbTP5T0ulAFz1koabOuql/z683T58mwhiUQlfWC', 'dominguezstephen6@gmail.com', 'user', 1500, '1', '2024-12-05 12:06:28', '2025-01-04 05:06:48', 'accepted');
+(30, 'stephen', '$2y$10$pMJ9QmNFAoK2Ks8fRK51jutBzAGWl2v1UGpLijOfr.hOVd6sxEpwu', 'dominguezstephen6@gmail.com', 'manager', 1500, '1', '2024-12-09 05:57:12', NULL, NULL),
+(34, 'bagnit', '$2y$10$Xjw9aAz/qWqLWuSkJB6HxOocszPvBL5IzHMtihVFyZrK7IJYrpIZS', 'wrenchnerbangit@gmail.com', 'user', 1500, '1', '2024-12-11 13:24:37', NULL, 'rejected');
 
 -- --------------------------------------------------------
 
@@ -89,14 +111,17 @@ CREATE TABLE `user_logs` (
 
 INSERT INTO `user_logs` (`log_id`, `user_id`, `action`, `performed_at`) VALUES
 (1, 4, 1, '2024-12-04 10:12:34'),
-(12, 15, 0, '2024-12-04 14:14:23'),
-(13, 15, 0, '2024-12-04 14:14:25'),
-(91, 15, 0, '2024-12-05 11:50:09'),
-(92, 28, 0, '2024-12-05 12:06:48');
+(96, 34, 0, '2024-12-11 13:24:48');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `bookings`
+--
+ALTER TABLE `bookings`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -116,16 +141,22 @@ ALTER TABLE `user_logs`
 --
 
 --
+-- AUTO_INCREMENT for table `bookings`
+--
+ALTER TABLE `bookings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `user_logs`
 --
 ALTER TABLE `user_logs`
-  MODIFY `log_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `log_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- Constraints for dumped tables
