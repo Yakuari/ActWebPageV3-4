@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iron Forge Gym</title>
     <link rel="stylesheet" href="src/css/styles.css">
+    <link rel="stylesheet" href="src/css/booking.css">
+    <link rel="stylesheet" href="src/css/about_us.css">
     <style>
         
     </style>
@@ -17,7 +19,7 @@
                 <span class="logo-name">Iron Forge Gym</span>
             </div>
             <div class="nav-container">
-                <ul class="nav-links">
+                <ul class="nav-links">  
                     <li><a href="#home">Home</a></li>
                     <li><a href="#program">Program</a></li>
                     <li><a href="#subscription">Subscription</a></li>
@@ -44,7 +46,7 @@
                 <div class="form-element">
                     <input type="password" name="password" placeholder="Password" required>
                 </div>
-                <button type="submit">Sign In</button>
+                <button type="submit" name="submit">Sign In</button>
                 <div class="form-element">
                     <a href="forgot-password.php">FORGOT PASSWORD?</a>
                 </div>
@@ -59,7 +61,7 @@
             <form action="config/system_config_signup.php" method="POST">
                 <h2>Register Here</h2>
                 <div class="form-element">
-                    <input type="text" name="username" placeholder="Username" required>
+                    <input type="text" name="uid" placeholder="Username" required>
                 </div>
                 <div class="form-element">
                     <input type="email" name="email" placeholder="Email" required>
@@ -69,9 +71,14 @@
                     <select name="type">
                         <option value="manager">Manager</option>
                         <option value="user">User</option>
+                        <option value="admin">Admin</option>
                     </select><br>
                 </div>
-                <button type="submit">Sign Up</button>
+                <div class="form-element">
+                <label for="months">How many Months:</label>
+                <input type="number" name="months" placeholder="Enter how many months" min="1" required>
+            </div>
+                <button type="submit" name="submit">Sign Up</button>
             </form>
         </div>
     </div>
@@ -94,17 +101,17 @@
         </div>
         <section class="program-section">
             <div class="program-link">
-             <a href="bodybuilding.php" class="link">
+             <a href="program/bodybuilding.php" class="link">
                 <h1> Bodybuilding Programs</h1>
                 <p>Designed to help you build muscle, improve strength, and sculpt your physique with tailored workouts and expert guidance.</p>
             </a>
 
-            <a href="fitness.php" class="link">
+            <a href="program/fitness.php" class="link">
                 <h1>Fitness Challenges</h1>
                 <p>Engaging and fun competitions that motivate you to break barriers, improve performance, and achieve milestones.</p>
             </a>
 
-            <a href="weightloss.php" class="link">
+            <a href="program/weightloss.php" class="link">
                 <h1>Weight Loss Programs</h1>
                 <p>Focused on shedding pounds and boosting confidence through customized training, balanced nutrition, and ongoing support.</p>
             </a>
@@ -217,5 +224,97 @@
             sliderContent.style.transform = `translateX(${newTransformValue}%)`;
         }
     </script>
+
+     <!-- Program Section -->
+     <div class="booking_section" id="booking">
+    <div class="booking_top">
+        <h1>Make a Booking</h1>
+        <p>Unlock Your Full Potential and Transform Your Fitness Journey – Book Your Spot at Our Gym Today and Start Achieving Your Goals!</p>
+    </div>
+
+    <div class="booking_form">
+        <form action="config/system_config_booking.php" method="POST">
+            <div class="booking-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="booking-group">
+                <label for="phone">Phone Number</label>
+                <input type="text"  id="phone" name="phone" required>
+            </div>
+            <div class="booking-group">
+                <label for="email">Email</label>
+                <input type="email" id="email"  name="email" required>
+            </div>
+            <div class="booking-group">
+                <label for="date">Date</label>
+                <input type="date" id="date"  name="date" required>
+            </div>
+            <div class="booking-group">
+                <button type="submit" name="submit" >Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- About Us Section -->
+<div class="about-us-title" id="about-us">
+    <h1>ABOUT US</h1>
+</div>
+
+<section class="about-us-container">
+    <!-- Our Story Section -->
+    <div class="about-us-story">
+        <h2>OUR STORY</h2>
+        <p>
+            Established in 2024, Iron Forge Gym started as a small community gym with a big dream:
+            to make high-quality fitness accessible to everyone.
+            Today, we’ve grown into a vibrant hub for fitness enthusiasts of all levels,
+            offering state-of-the-art facilities and a supportive environment.
+        </p>
+    </div>
+
+    <!-- What Drives Us Forward Section -->
+    <div class="about-us-mission">
+        <h2>What Drives Us Forward</h2>
+        <p>
+            At Iron Forge Gym, we are passionate about promoting health, fitness, and overall well-being.
+            Our journey began with the belief that everyone deserves a supportive environment
+            to achieve their fitness goals and lead a healthier lifestyle.
+        </p>
+    </div>
+
+    <!-- Join Our Community Section -->
+    <div class="about-us-join">
+        <h2>JOIN OUR COMMUNITY</h2>
+        <p>
+            At Iron Forge Gym, you’re not just a member; you’re part of a family.
+            We’re here to guide, motivate, and celebrate your progress every step of the way.
+            Whether you're a beginner or a seasoned athlete, we have something for everyone.
+        </p>
+    </div>
+
+    <!-- Contact Us Section -->
+    <div class="about-us-contacts">
+        <h2>CONTACT US</h2>
+        <p><strong>Phone:</strong> +1 800 123 4567</p>
+        <p><strong>Email:</strong> contact@ironforgegym.com</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+                <img src="src/css/images/fb_logo.png" alt="Logo" width="30">
+            </a>
+            <a href="https://www.youtube.com" target="_blank" aria-label="YouTube">
+                <img src="src/css/images/yt_logoo.png" alt="Logo" width="30">
+            </a>
+            <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+                <img src="src/css/images/ig_logo.png" alt="Logo" width="30">
+            </a>
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+                <img src="src/css/images/tt_logo.png" alt="Logo" width="30">
+            </a>
+        </div>
+    </div>
+    </section>
+
 </body>
 </html>

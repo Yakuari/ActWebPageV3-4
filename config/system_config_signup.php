@@ -6,6 +6,7 @@ if (isset($_POST['submit'])) {
     $uid = $_POST['uid'];
     $type = $_POST['type'];
     $pass = $_POST['password'];
+    $months = $_POST['months'];
 
     // Include required files
     include_once "../database/dbh.php";
@@ -13,7 +14,7 @@ if (isset($_POST['submit'])) {
     include_once "../dashboard/authentication/admin-class.php";
 
     // Instantiate the Admin class
-    $signup = new Admin($email, $uid, $type, $pass);
+    $signup = new Admin($email, $uid, $type, $pass, $months, $amount);
 
     // Call the signupUser method to process the signup
     $signup->signupUser();
@@ -22,4 +23,5 @@ if (isset($_POST['submit'])) {
     header("location: ../index.php?error=formnotsubmitted");
     exit();
 }
+
 ?>
