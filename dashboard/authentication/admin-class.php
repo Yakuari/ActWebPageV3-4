@@ -1,30 +1,32 @@
 <?php
 
-require_once __DIR__. '/../../vendor/autoload.php'; // PHPMailer autoload
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-
+require_once __DIR__. '/../../vendor/autoload.php'; // PHPMailer autoload
 require_once __DIR__. '/../../database/signUp.query.php';
-
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-
 
 class Admin extends signUp {
     private $email;
     private $uid;
     private $type;
     private $pass;
+    private $month;
+    private $monthLimit = 12; // Define the month limit
+    private $amount;
+   
 
-    public function __construct($email, $uid, $type, $pass) {
+    public function __construct($email, $uid, $type, $pass, $month ,$amount) {
         $this->email = $email;
         $this->uid = $uid;
         $this->type = $type;
         $this->pass = $pass;
+        $this->month = $month;
+        $this->amount = $amount;
     }
 
     public function signupUser() {
@@ -52,18 +54,80 @@ class Admin extends signUp {
             exit();
         }
 
+        // Check the month limit
+        if ($this->monthLimit() == false) {
+            header("location: ../index.php?error=monthexceeded");
+            exit();
+        }
+
+
         // Handle user authority based on type
         switch ($this->type) {
+            case 'admin':
+                $role = "admin";
+                break;
             case 'manager':
                 $role = "manager";
                 break;
-
             case 'user':
                 $role = "user";
                 break;
 
             default:
                 header("location: ../index.php?error=invalidtype");
+                exit();
+        }
+        switch ($this->month) {
+            case '1':
+                $month = 1;
+                $amount = 1500;
+                break;
+            case '2':
+                $month = 2;
+                $amount = 3000;
+                break;
+            case '3':
+                $month = 3;
+                $amount = 4000;
+                break;
+            case '4':
+                $month = 4;
+                $amount = 6000;
+                break;
+            case '5':
+                $month = 5;
+                $amount = 7500;
+                break;
+            case '6':
+                $month = 6;
+                $amount = 8000;
+                break;
+            case '7':
+                $month = 7;
+                $amount = 10500;
+                break;
+            case '8':
+                $month = 8;
+                $amount = 12000;
+                break;
+            case '9':
+                $month = 9;
+                $amount = 12000;
+                break;
+            case '10':
+                $month = 10;
+                $amount = 15000;
+                break;
+            case '11':
+                $month = 11;
+                $amount = 16500;
+                break;
+            case '12':
+                $month = 12;
+                $amount = 16000;
+                break;
+            default:
+                header("location: ../index.php?error=invalidmonth");
                 exit();
         }
 
@@ -73,7 +137,9 @@ class Admin extends signUp {
                 'uid' => $this->uid,
                 'email' => $this->email,
                 'role' => $role,
-                'pass' => $this->pass
+                'pass' => $this->pass,
+                'amount' => $amount,
+                'month' => $month
             ];
             header("location: ../database/verify_otp.php"); // Redirect to OTP verification page
             exit();
@@ -84,7 +150,7 @@ class Admin extends signUp {
     }
 
     private function emptyInput() {
-        return !(empty($this->email) || empty($this->uid) || empty($this->type) || empty($this->pass));
+        return !(empty($this->email) || empty($this->uid) || empty($this->type) || empty($this->month) || empty($this->pass));
     }
 
     private function invalidUid() {
@@ -97,6 +163,11 @@ class Admin extends signUp {
 
     private function uidTakenChecker() {
         return $this->checkUser($this->uid, $this->email);
+    }
+
+    private function monthLimit() {
+        // Check if the month value exceeds the allowed limit
+        return $this->month > 0 && $this->month <= $this->monthLimit;
     }
 
     private function sendOtp() {
@@ -132,7 +203,6 @@ class Admin extends signUp {
     }
 
     public function verifyOtp($inputOtp) {
-        
         // Check if OTP exists in session and is valid
         if (isset($_SESSION['otp']) && $_SESSION['otp'] == $inputOtp) {
             if (time() <= $_SESSION['otp_expiry']) {
@@ -140,7 +210,7 @@ class Admin extends signUp {
 
                 // Register user after OTP verification
                 $tempUser = $_SESSION['temp_user'];
-                $this->setUser($tempUser['uid'], $tempUser['pass'], $tempUser['email'], $tempUser['role']);
+                $this->setUser($tempUser['uid'], $tempUser['pass'], $tempUser['email'], $tempUser['role'], $tempUser['amount'], $tempUser['month']);
                 unset($_SESSION['temp_user']); // Clear temporary user data
 
                 return true;

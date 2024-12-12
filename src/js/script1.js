@@ -1,14 +1,23 @@
 document.addEventListener("DOMContentLoaded", function () {
     const showLoginBtn = document.querySelector("#show-login");
-    const showSignupBtn = document.querySelector("#show-signup"); // Signup button
+    const showSignupBtn = document.querySelector("#show-signup");
     const loginPopup = document.querySelector(".popup.login-popup");
     const signupPopup = document.querySelector(".popup.signup-popup");
     const closeBtns = document.querySelectorAll(".popup .close-btn");
 
+    // Function to close all popups
+    function closeAllPopups() {
+        loginPopup?.classList.remove("active");
+        signupPopup?.classList.remove("active");
+    }
+
     // Toggle popup visibility
     function togglePopup(popup) {
-        if (popup) {
-            popup.classList.toggle("active");
+        if (popup.classList.contains("active")) {
+            popup.classList.remove("active"); // Close the popup if already active
+        } else {
+            closeAllPopups(); // Close any other active popups
+            popup.classList.add("active"); // Open the designated popup
         }
     }
 
@@ -36,45 +45,19 @@ document.addEventListener("DOMContentLoaded", function () {
             !event.target.matches("#show-login") &&
             !event.target.matches("#show-signup")
         ) {
-            loginPopup?.classList.remove("active");
-            signupPopup?.classList.remove("active");
+            closeAllPopups();
         }
     });
-});
 
-document.addEventListener('DOMContentLoaded', () => {
     // Smooth scrolling for home link
     const homeLink = document.querySelector('.nav-links li a[href="index.php"]');
-    
     if (homeLink) {
-        homeLink.addEventListener('click', (e) => {
+        homeLink.addEventListener("click", (e) => {
             e.preventDefault();
             window.scrollTo({
                 top: 0,
-                behavior: 'smooth'
+                behavior: "smooth",
             });
         });
     }
-
-    // Popup functionality
-    const loginBtn = document.getElementById('show-login');
-    const signupBtn = document.getElementById('show-signup');
-    const loginPopup = document.querySelector('.login-popup');
-    const signupPopup = document.querySelector('.signup-popup');
-    const closeButtons = document.querySelectorAll('.close-btn');
-
-    loginBtn.addEventListener('click', () => {
-        loginPopup.classList.add('active');
-    });
-
-    signupBtn.addEventListener('click', () => {
-        signupPopup.classList.add('active');
-    });
-
-    closeButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            loginPopup.classList.remove('active');
-            signupPopup.classList.remove('active');
-        });
-    });
 });
