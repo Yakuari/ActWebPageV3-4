@@ -144,17 +144,64 @@ transform: translateY(-2px);
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-
 body {
-background-image: url(../css/images/backgroundd.jpg);
-color: var(--sub-color);
-font-family: var(--main-font), sans-serif;
-margin: 0;
-padding: 0;
-padding-top: 130px; /* To account for the fixed header */
+    background-image: url(../css/images/backgroundd.jpg);
+    color: var(--sub-color);
+    font-family: var(--main-font), sans-serif;
+    margin: 0;
+    padding: 0;
+    padding-top: 130px; /* To account for the fixed header */
+    }
+
+.weightloss-title {
+text-align: center;
+margin-bottom: 60px;
+margin-top: 50px;
 }
 
+.weightloss-title h1 {
+color: var(--button-hover-color);
+font-size: 50px;
+}
 
+.weightloss-title p {
+font-size: 25px;
+}
+
+.weightloss-choices {
+display: flex;
+justify-content: center;
+gap: 30px;
+margin: 50px;
+}
+
+.weightloss-choices div {
+border: 2px solid var(--button-color);
+text-align: center;
+background-color: var(--form-color);
+padding: 0;
+border-radius: 5px;
+color: var(--sub-color);
+flex: 1; /* Ensures all columns have the same width */
+max-width: 400px; /* Optional: Set a maximum width for each column */
+}
+
+.weightloss-choices div h1 {
+background-color:#D4AF37;
+padding: 10px;
+color: var(--main-color);
+border-radius: 5px 5px 0 0;
+margin: 0;
+}
+
+.weightloss-choices div p {
+margin-top: 20px;
+background-color: var(--form-color);
+padding: 10px;
+border-top: none;
+border-radius: 0 0 5px 5px;
+font-size: 20px;
+}
 
 /* Popup Styles */
 .popup {

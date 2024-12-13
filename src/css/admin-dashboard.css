@@ -1,0 +1,110 @@
+:root {
+    --color-black: #0A0A0A;
+    --color-white: #FFFFFF;
+    --color-gray: #1E1E1E;
+    --color-gold: #D4AF37;
+    --color-gold-dark: #BF9B30;
+    --color-overlay: rgba(0, 0, 0, 0.6);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-gray);
+    color: var(--color-white);
+}
+
+h1 {
+    text-align: center;
+    padding: 20px 0;
+    background-color: var(--color-gold);
+    color: var(--color-black);
+    margin: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+a {
+    display: inline-block;
+    margin: 15px;
+    text-decoration: none;
+    color: var(--color-gold);
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+table {
+    width: 95%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+th, td {
+    padding: 12px 15px;
+    border: 1px solid var(--color-gray);
+    text-align: left;
+}
+
+th {
+    background-color: var(--color-gold-dark);
+    color: var(--color-white);
+}
+
+tr:nth-child(even) {
+    background-color: var(--color-overlay);
+}
+
+tr:hover {
+    background-color: var(--color-gray);
+}
+
+.actions {
+    text-align: center;
+}
+
+button {
+    padding: 8px 12px;
+    margin: 2px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button[name="action"][value="accept"] {
+    background-color: var(--color-gold);
+    color: var(--color-black);
+}
+
+button[name="action"][value="reject"] {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+form {
+    display: inline;
+}
+
+@media (max-width: 768px) {
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    button {
+        font-size: 12px;
+    }
+}
