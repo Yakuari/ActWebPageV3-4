@@ -1,7 +1,9 @@
 <?php
-require_once __DIR__. '/dbh.php'; // Adjust the path to your Dbh class file
-class AdminDashboard extends Dbh {
-    public function fetchUsers() {
+require_once __DIR__ . '/dbh.php'; // Adjust the path to your Dbh class file
+class AdminDashboard extends Dbh
+{
+    public function fetchUsers()
+    {
         $sql = "SELECT * FROM users";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute();
@@ -13,36 +15,44 @@ $users = $dashboard->fetchUsers();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 10px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
-        th {
-            background-color: #f4f4f4;
-        }
-        form {
-            display: inline;
-        }
-        .actions {
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="../src/css/admin-dashboard.css">
 </head>
+
 <body>
-    <h1>Admin Dashboard</h1>    
-       <div>
-    <a href="../index.php">Log out</a>
-        </div>
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <div class="logo-container">
+                <img src="../src/css/images/logo.png" alt="logo" class="logo">
+                <span class="logo-name">Iron Forge Gym</span>
+            </div>
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="../index.php">Home</a></li>
+                    <li><a href="../index.php#program">Program</a></li>
+                    <li><a href="../index.php#subscription">Subscription</a></li>
+                    <li><a href="../index.php#booking">Booking</a></li>
+                    <li><a href="../index.php#about-us">About Us</a></li>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <span>Admin</span>
+                <div class="dropdown-menu">
+                    <a href="#">Dashboard</a>
+                    <a href="../index.php">Logout</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <h1>Admin Dashboard</h1>
+    
     <table>
         <thead>
             <tr>
@@ -69,34 +79,28 @@ $users = $dashboard->fetchUsers();
                     <td><?= htmlspecialchars($user['created_at']) ?></td>
                     <td><?= htmlspecialchars($user['expire_at'] ?? 'N/A') ?></td>
                     <td class="actions">
-                        <!-- Accept Form -->
                         <form action="admin_process.php" method="POST">
                             <input type="hidden" name="user_id" value="<?= $user['id'] ?>">
                             <button type="submit" name="action" value="accept">Accept</button>
                         </form>
-                        <!-- Reject Form -->
                         <form action="admin_process.php" method="POST">
                             <input type="hidden" name="user_id" value="<?= $user['id'] ?>">
                             <button type="submit" name="action" value="reject">Reject</button>
                         </form>
-
-                        
-                        
                     </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
-                  
 </body>
+
 </html>
+
 <?php if (isset($_GET['message'])): ?>
     <p style="color: green;">Action completed successfully.</p>
 <?php elseif (isset($_GET['error'])): ?>
     <p style="color: red;">
-        <?= htmlspecialchars($_GET['error'] === 'missing_data' ? 'Missing data.' :
-                              ($_GET['error'] === 'invalid_action' ? 'Invalid action.' :
-                              ($_GET['error'] === 'db_error' ? 'Database error.' : 'An error occurred.'))) ?>
+        <?= htmlspecialchars($_GET['error'] === 'missing_data' ? 'Missing data.' : ($_GET['error'] === 'invalid_action' ? 'Invalid action.' : ($_GET['error'] === 'db_error' ? 'Database error.' : 'An error occurred.'))) ?>
     </p>
 <?php endif; ?>
 <?php if (isset($_GET['error']) && $_GET['error'] === 'already_processed'): ?>
