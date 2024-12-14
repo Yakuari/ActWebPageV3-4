@@ -2,9 +2,11 @@
 session_start();
 require_once __DIR__ . '/database/dbh.php';
 
-class BookingManager extends Dbh {
+class BookingManager extends Dbh
+{
     // Method to fetch all bookings
-    public function getBookings() {
+    public function getBookings()
+    {
         $sql = "SELECT id, name, phone, email, booking_date FROM bookings ORDER BY booking_date DESC";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute();
@@ -12,14 +14,16 @@ class BookingManager extends Dbh {
     }
 
     // Method to delete a booking by ID
-    public function deleteBooking($bookingId) {
+    public function deleteBooking($bookingId)
+    {
         $sql = "DELETE FROM bookings WHERE id = ?";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$bookingId]);
     }
 
     // Method to fetch all users with user_role = 'user'
-    public function getUsers() {
+    public function getUsers()
+    {
         $sql = "SELECT id, user_uid, user_email, created_at, expire_at, user_month, status FROM users WHERE user_role = 'user'";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute();
@@ -27,7 +31,8 @@ class BookingManager extends Dbh {
     }
 
     // Check if a user is already processed
-    public function isUserProcessed($userId) {
+    public function isUserProcessed($userId)
+    {
         $sql = "SELECT status FROM users WHERE id = ?";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$userId]);
@@ -36,7 +41,8 @@ class BookingManager extends Dbh {
     }
 
     // Accept a user and calculate expiration date
-    public function acceptUser($userId) {
+    public function acceptUser($userId)
+    {
         if ($this->isUserProcessed($userId)) {
             header("Location: manager.php?error=already_processed");
             exit();
@@ -67,7 +73,8 @@ class BookingManager extends Dbh {
     }
 
     // Reject a user and update the status
-    public function rejectUser($userId) {
+    public function rejectUser($userId)
+    {
         if ($this->isUserProcessed($userId)) {
             header("Location: manager.php?error=already_processed");
             exit();
@@ -130,17 +137,41 @@ $users = $bookingManager->getUsers();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manager Dashboard</title>
     <link rel="stylesheet" href="src/css/manager-dashboard.css">
 </head>
+
 <body>
     <header>
-        <h1>Manager Dashboard</h1>
-        <a href="index.php">Log Out</a>
+        <nav>
+            <div class="logo-container">
+                <img src="src/css/images/logo.png" alt="logo" class="logo">
+                <span class="logo-name">Iron Forge Gym</span>
+            </div>
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="../index.php">Home</a></li>
+                    <li><a href="../index.php#program">Program</a></li>
+                    <li><a href="../index.php#subscription">Subscription</a></li>
+                    <li><a href="../index.php#booking">Booking</a></li>
+                    <li><a href="../index.php#about-us">About Us</a></li>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <span>Manager</span>
+                <div class="dropdown-menu">
+                    <a href="#">Dashboard</a>
+                    <a href="index.php">Logout</a>
+                </div>
+            </div>
+        </nav>
     </header>
+
+    <h1>Manager Dashboard</h1>
 
     <main>
         <!-- Display success or error messages -->
@@ -173,7 +204,7 @@ $users = $bookingManager->getUsers();
                             <td><?php echo htmlspecialchars($booking['booking_date']); ?></td>
                             <td>
                                 <a href="manager.php?delete_booking=<?php echo $booking['id']; ?>"
-                                   onclick="return confirm('Are you sure you want to delete this booking?');">Delete</a>
+                                    onclick="return confirm('Are you sure you want to delete this booking?');">Delete</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -227,4 +258,5 @@ $users = $bookingManager->getUsers();
         </table>
     </main>
 </body>
+
 </html>

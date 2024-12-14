@@ -40,21 +40,19 @@ $users = $dashboard->fetchUsers();
                     <li><a href="../index.php#about-us">About Us</a></li>
                 </ul>
             </div>
-        <div class="dropdown">
-            <span>Admin</span>
-            <div class="dropdown-menu">
-                <a href="#">Dashboard</a>
-                <a href="../index.php">Logout</a>
+            <div class="dropdown">
+                <span>Admin</span>
+                <div class="dropdown-menu">
+                    <a href="#">Dashboard</a>
+                    <a href="../index.php">Logout</a>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
     </header>
 
     <!-- Main Content -->
     <h1>Admin Dashboard</h1>
-    <div>
     
-    </div>
     <table>
         <thead>
             <tr>
