@@ -1,15 +1,18 @@
 <?php
 
-class signIn extends signInQuery {
+class signIn extends signInQuery
+{
     private $email;
     private $pass;
 
-    public function __construct($email, $pass) {
+    public function __construct($email, $pass)
+    {
         $this->email = $email;
         $this->pass = $pass;
     }
 
-    public function signInUser() {
+    public function signInUser()
+    {
         // Step 1: Check for empty input
         if (!$this->emptyInput()) {
             header("location: ../index.php?error=emptyinput");
@@ -28,6 +31,10 @@ class signIn extends signInQuery {
             // Redirect to User dashboard or page
             echo "<script>alert('Welcome User'); window.location.href = '../user.php';</script>";
             exit();
+        } elseif ($_SESSION["user_role"] === "admin") {
+            // Redirect to Admin dashboard or page
+            echo "<script>alert('Welcome Admin'); window.location.href = '../database/admin-dashboard-class.php';</script>";
+            exit();
         } else {
             // Redirect if the user type is unrecognized
             echo "<script>alert('error'); window.location.href = '../';</script>";
@@ -35,7 +42,8 @@ class signIn extends signInQuery {
         }
     }
 
-    private function emptyInput() {
+    private function emptyInput()
+    {
         // Return false if any field is empty
         if (empty($this->email) || empty($this->pass)) {
             return false;
@@ -43,4 +51,3 @@ class signIn extends signInQuery {
         return true;
     }
 }
-?>
