@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weightloss Program</title>
+    <title>Bodybuilding Program</title>
     <link rel="stylesheet" href="../src/css/weightloss.css">
-
-
+    
 </head>
 
-<header>
+<body>
+    <header>
         <nav>
             <div class="logo-container">
-                <img src="../src/css/images/logo.png" alt="logo" class="logo">
+            <a href="../index.php"><img src="../src/css/images/logo.png" alt="logo" class="logo"></a>
                 <span class="logo-name">Iron Forge Gym</span>
             </div>
             <div class="nav-container">
@@ -27,9 +28,20 @@
                     <button id="show-login">Sign in</button>
                     <button id="show-signup">Sign Up</button>
                 </div>
+                <button class="menu-button" onclick="toggleSidebar()">☰</button>
             </div>
         </nav>
     </header>
+
+    <!-- Sidebar -->
+    <ul class="sidebar">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#program">Program</a></li>
+            <li><a href="#subscription">Subscription</a></li>
+            <li><a href="#booking">Booking</a></li>
+            <li><a href="#about-us">About Us</a></li>
+            <button class="sidebar-close-btn">&times;</button>
+        </ul>
 
     <!-- Login Popup -->
     <div class="popup login-popup">
@@ -80,41 +92,60 @@
         </div>
     </div>
 
-    
-
-
-<body>
-    <div class="weightloss-title">
-        <h1>WeightLoss</h1>
-        <p>A successful weight loss program typically involves three important components:</p>
+    <div class="body-title">
+        <h1>WEIGHT LOSS PROGRAM</h1>
     </div>
 
-    <div class="weightloss-choices">
+    <!-- Exercise Sections -->
+    <div class="weight-loss-choices">
+        <img src="../src/css/images/calorie-deficit.jpg" alt="Calorie Deficit">
         <div>
-            <h1>Healthy Diet</h1>
-            <p>A balanced diet is key to losing weight. This means consuming fewer
-            calories than you burn while ensuring your body gets the nutrients it needs.
-            Focus on whole foods, including fruits, vegetables, lean proteins, whole
-            grains, and healthy fats. Reducing processed foods, sugars, and excessive fats is crucial..</p>
-        </div>
+            <h1>CALORIE DEFICIT</h1>
+            <p>A calorie deficit is a state where you consume fewer calories than your body burns, leading to weight loss by forcing the body to use stored energy (fat) for fuel.
 
-        <div>
-            <h1>Regular Physical Activity</h1>
-            <p>Exercise helps burn calories and build muscle, which increases your metabolism.
-                Aim for a combination of aerobic exercises (like walking, running, or cycling)
-                and strength training (such as weightlifting or bodyweight exercises).</p>
+To lose 1 pound of body weight, a deficit of approximately 3,500 calories is generally required, though individual metabolic factors can influence results.</p>
+            <ul>
+                <li><strong>Facilitates Weight Loss: </strong>Encourages the body to burn stored fat for energy.</li>
         </div>
+    </div>
 
+    <div class="weight-loss-choices">
+        <img src="../src/css/images/intermittent-fasting.jpg" alt="Intermittent Fasting">
         <div>
-            <h1>Behavioral Changes and Mindset</h1>
-            <p>Weight loss is not just about diet and exercise, it's about making
-                lasting lifestyle changes. This includes setting realistic goals, managing stress,
-                getting enough sleep, and developinga positive attitude towards your progress.
-                Tracking your food, activity, and progress can also help maintain motivation.</p>
+            <h1>INTERMITTENT FASTING</h1>
+            <p>Intermittent fasting (IF) is an eating pattern that alternates between periods of fasting and eating. It doesn’t focus on what you eat but rather when you eat. Common methods include the 16/8 method, eat-stop-eat, and the 5:2 diet.
+</p>
+            <ul>
+                <li><strong>Weight Loss: </strong>Helps reduce calorie intake, increase fat burning, and improve metabolic rate.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="weight-loss-choices">
+        <img src="../src/css/images/cardio.jpg" alt="cardio">
+        <div>
+            <h1>CARDIO</h1>
+            <p> Cardio, short for cardiovascular exercise, involves rhythmic activities that increase your heart rate and breathing. Examples include running, cycling, swimming, and brisk walking.
+
+Targets Heart and Lungs: Strengthens the cardiovascular system by improving heart and lung efficiency</p>
+            <ul>
+                <li><strong>Heart Health:</strong>Reduces risk of heart disease by improving blood circulation and lowering blood pressure.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="weight-loss-choices">
+        <img src="../src/css/images/strenght-training.jpg" alt="Strenght Training">
+        <div>
+            <h1>STRENGHT TRAINING</h1>
+            <p> Strength training, also known as resistance training, involves exercises designed to improve muscle strength, power, and endurance using resistance like weights, bands, or bodyweight.</p>
+            <ul>
+                <li><strong>Muscle Development: </strong>Builds and tones muscles for improved strength and appearance.</li>
+            </ul>
         </div>
     </div>
 
     <script src="../src/js/script1.js"></script>
-
 </body>
+
 </html>
