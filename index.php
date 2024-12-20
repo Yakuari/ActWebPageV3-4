@@ -41,7 +41,7 @@
             <li><a href="#subscription">Subscription</a></li>
             <li><a href="#booking">Booking</a></li>
             <li><a href="#about-us">About Us</a></li>
-            </li>
+            <button class="sidebar-close-btn">&times;</button>
         </ul>
 
     <!-- Login Popup -->
@@ -93,6 +93,8 @@
         </div>
     </div>
 
+    
+
     <main id="home">
         <section class="content">
             <h1>Welcome to Iron Forge Gym,</h1>
@@ -103,17 +105,16 @@
         </section>
     </main>
 
-    <script src="src/js/script1.js"></script>
 </body>
 
 </html>
 
+<!-- Program Titles -->
+<div class="program-title" id="program">
+    <h1>Iron Forge Gym Programs</h1>
+</div>
 
-    <!-- Program Section -->
-    <div class="program-title" id="program">
-        <h1>Iron Forge Gym Programs</h1>
-    </div>
-    <section class="program-section">
+<section class="program-section">
         <div class="program-link">
             <a href="program/bodybuilding.php" class="link">
                 <h1> Bodybuilding Programs</h1>
@@ -132,6 +133,8 @@
         </div>
     </section>
 
+
+    <!-- Subscription Link -->
     <div class="subscription-link" id="subscription">
         <h1>Subscription Plan and Pricing</h1>
 
@@ -331,5 +334,7 @@
     </section>
 
 </body>
+
+<script src="src/js/script1.js"></script>
 
 </html>

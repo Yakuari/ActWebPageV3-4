@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Popups
     const showLoginBtn = document.querySelector("#show-login");
     const showSignupBtn = document.querySelector("#show-signup");
     const loginPopup = document.querySelector(".popup.login-popup");
@@ -6,10 +7,21 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeBtns = document.querySelectorAll(".popup .close-btn");
     const buyButtons = document.querySelectorAll('.subscription form button');
 
+    // Sidebar
+    const sidebar = document.querySelector('.sidebar');
+    const menuButton = document.querySelector('.menu-button');
+    const closeButton = document.querySelector('.sidebar-close-btn');
+
+    // Form popup
+    const openFormBtn = document.querySelector("#openFormBtn");
+    const formPopup = document.querySelector("#formPopup");
+    const formCloseBtn = document.querySelector(".popup-form .close-btn");
+
     // Function to close all popups
     function closeAllPopups() {
         loginPopup?.classList.remove("active");
         signupPopup?.classList.remove("active");
+        formPopup?.classList.remove("active");
     }
 
     // Toggle popup visibility
@@ -22,14 +34,18 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Event listeners for opening popups
-    showLoginBtn?.addEventListener("click", function () {
-        togglePopup(loginPopup);
-    });
+    // Event listeners for opening login/signup popups
+    if (showLoginBtn) {
+        showLoginBtn.addEventListener("click", function () {
+            togglePopup(loginPopup);
+        });
+    }
 
-    showSignupBtn?.addEventListener("click", function () {
-        togglePopup(signupPopup);
-    });
+    if (showSignupBtn) {
+        showSignupBtn.addEventListener("click", function () {
+            togglePopup(signupPopup);
+        });
+    }
 
     // Buy buttons now also trigger signup popup
     buyButtons.forEach(button => {
@@ -47,13 +63,29 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Close popup when clicking outside
+    // Event listeners for opening form popup
+    if (openFormBtn) {
+        openFormBtn.addEventListener("click", function () {
+            formPopup.classList.add("active");
+        });
+    }
+
+    // Close the form popup when the close button is clicked
+    if (formCloseBtn) {
+        formCloseBtn.addEventListener("click", function () {
+            formPopup.classList.remove("active");
+        });
+    }
+
+    // Close popups when clicking outside
     document.addEventListener("click", function (event) {
         if (
             !event.target.closest(".popup") &&
             !event.target.matches("#show-login") &&
             !event.target.matches("#show-signup") &&
-            !event.target.closest('.subscription form button')
+            !event.target.closest('.subscription form button') &&
+            !event.target.closest("#formPopup") &&
+            !event.target.matches("#openFormBtn")
         ) {
             closeAllPopups();
         }
@@ -70,5 +102,18 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     }
-});
 
+    // Toggle sidebar
+    if (menuButton && sidebar) {
+        menuButton.addEventListener('click', function () {
+            sidebar.classList.toggle('active');
+        });
+    }
+
+    // Close sidebar when close button is clicked
+    if (closeButton && sidebar) {
+        closeButton.addEventListener('click', function () {
+            sidebar.classList.remove('active');
+        });
+    }
+});

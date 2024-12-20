@@ -87,7 +87,7 @@ nav {
 /* Navigation Buttons */
 .nav-buttons {
     display: flex;
-    margin-left: auto;
+    margin-left: 25rem;
     margin-right: 20px;
     gap: 20px;
     height: 100%;
@@ -123,11 +123,6 @@ nav {
 #show-signup {
     background-color: var(--button-color);
     color: var(--main-color);
-}
-
-.nav-buttons button:hover {
-    background-color: var(--button-hover-color);
-    transform: translateY(-2px);
 }
 
 #show-login:hover {
@@ -177,6 +172,24 @@ nav {
 .sidebar a:hover {
     color: var(--button-color);
 }
+
+/* Sidebar Close Button */
+.sidebar-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    color: var(--sub-color);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.sidebar-close-btn:hover {
+    color: var(--button-color);
+}
+
 
 /* Popup Styles */
 .popup {
