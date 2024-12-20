@@ -10,40 +10,43 @@
 .booking_section {
     margin-top: 30px;
     display: flex;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
     justify-content: center;
     align-items: center;
-    height: 100vh; 
+    height: auto; /* Adjust height for responsiveness */
     gap: 30px;
     padding: 20px;
-  }
-  
-  .booking_top {
+}
+
+.booking_top {
     margin-bottom: 5%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background: rgba(34, 34, 34, 0.8);
-    padding: 40px 30px;
+    padding: 40px 20px; /* Reduced padding for smaller screens */
     width: 100%;
     max-width: 800px;
     padding-bottom: 50px;
-  }
-  
-  .booking_top h1 {
+}
+
+.booking_top h1 {
     color: var(--button-hover-color);
     text-align: center;
     margin-bottom: 20px;
-  }
-  
-  .booking_top p {
-    font-size: 20px;
-    width: 700px;
-  }
+}
 
-  .booking_form {
+.booking_top p {
+    font-size: 1rem; /* Use responsive font size */
+    width: 100%; /* Adjust width for small screens */
+    max-width: 700px;
+    text-align: center; /* Center-align text */
+}
+
+.booking_form {
     background: var(--form-color);
-    padding: 30px 30px;
+    padding: 20px; /* Adjusted padding for small screens */
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 100%;
@@ -51,32 +54,34 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 100px;
-    margin-top: 90px;
-  }
-  
-  .booking-group {
-    margin-top: 25px;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    width: 350px;
-  }
-  
-  .booking-group label {
+    margin: 30px 0;
+}
+
+.booking-group {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 230%;
+  max-width: 250px; 
+}
+
+.booking-group label {
     margin-bottom: 5px;
     font-size: 1rem;
     color: #fff;
-  }
-  
-  .booking-group input {
+}
+
+.booking-group input {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 1rem;
-  }
-  
-  .booking-group button {
+    width: 100%;
+    padding-left: 40px;
+}
+
+.booking-group button {
     margin-top: 20px;
     padding: 10px 15px;
     background-color: var(--button-color);
@@ -86,8 +91,56 @@
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  
-  .booking-group button:hover {
+}
+
+.booking-group button:hover {
     background-color: var(--button-hover-color);
-  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .booking_section {
+        flex-direction: column; /* Stack elements vertically */
+        height: auto;
+        gap: 20px;
+    }
+
+    .booking_top {
+        padding: 30px 15px; /* Adjusted padding for small screens */
+    }
+
+    .booking_top p {
+        font-size: 0.9rem; /* Slightly smaller text */
+        width: 100%; /* Full width for mobile */
+    }
+
+    .booking_form {
+        padding: 20px 15px; /* Reduced padding */
+    }
+
+    .booking-group {
+        width: 100%; /* Full width for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .booking_top {
+        padding: 20px 10px;
+    }
+
+    .booking_top h1 {
+        font-size: 1.5rem; /* Adjust heading size */
+    }
+
+    .booking_top p {
+        font-size: 0.8rem; /* Smaller text for mobile */
+    }
+
+    .booking_form {
+        padding: 15px 10px; /* Compact padding */
+    }
+
+    .booking-group button {
+        font-size: 0.9rem; /* Smaller button text */
+    }
+}

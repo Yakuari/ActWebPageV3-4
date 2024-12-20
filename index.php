@@ -242,7 +242,7 @@
         }
     </script>
 
-    <!-- Program Section -->
+    <!-- booking Section -->
     <div class="booking_section" id="booking">
         <div class="booking_top">
             <h1>Make a Booking</h1>
