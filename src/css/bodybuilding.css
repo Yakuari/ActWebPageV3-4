@@ -22,7 +22,7 @@ body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: var(--sub-color);
+    background-color: var(--form-color)
 }
 
 /* Header Styles */
@@ -40,7 +40,7 @@ nav {
     width: 100%;
     padding: 1rem 2rem;
     display: flex;
-    justify-content: space-between; /* Spread the logo and buttons */
+    justify-content: space-between;
     align-items: center;
     background-color: var(--main-color);
     position: relative;
@@ -68,9 +68,9 @@ nav {
 .nav-links {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%); /* Center the nav links horizontally */
+    transform: translateX(-50%);
     display: flex;
-    gap: 2rem; /* Space between each link */
+    gap: 2rem;
 }
 
 .nav-links a {
@@ -78,7 +78,6 @@ nav {
     color: var(--sub-color);
     font-weight: 500;
     transition: color 0.3s ease;
-    position: relative;
 }
 
 .nav-links a:hover {
@@ -103,7 +102,7 @@ nav {
 /* Navigation Buttons */
 .nav-buttons {
     display: flex;
-    gap: 2rem; /* Add gap between buttons */
+    gap: 2rem;
 }
 
 .nav-buttons button {
@@ -124,7 +123,6 @@ nav {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
 
 #show-login {
     background-color: transparent;
@@ -200,37 +198,6 @@ nav {
 
 .sidebar-close-btn:hover {
     color: var(--button-color);
-}
-
-
-/* Program Section */
-.program-section {
-    padding: 50px;
-    background-color: #f4f4f4;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-}
-
-.program-link {
-    text-align: center;
-}
-
-.program-link h1 {
-    font-size: 24px;
-    color: #333;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-.program-link h1:hover {
-    color: #007BFF;
-}
-
-.program-link p {
-    font-size: 16px;
-    color: #666;
 }
 
 /* Popup Styles */
@@ -319,60 +286,40 @@ nav {
 @media screen and (max-width: 768px) {
     nav {
         padding: 0.8rem 1rem;
-        width: 100%;
-        /* Ensure the nav bar doesn't overflow */
-        max-width: 100vw;
-        position: relative;
         display: flex;
-        justify-content: space-between; /* This will help space elements evenly */
+        justify-content: space-between;
     }
 
     .nav-links {
         display: none;
     }
 
-    /* Logo adjustments */
     .logo-container {
-        width: auto;
-        flex: 0 0 auto; /* Prevent logo from growing or shrinking */
+        flex: 0 0 auto;
     }
 
     .logo {
-        height: 60px; /* Proportionally reduced for mobile */
-        width: auto;
+        height: 60px;
     }
 
     .logo-name {
         display: none;
     }
 
-    /* Button container adjustments */
     .nav-buttons {
         display: flex;
-        gap: 0.4rem; /* Reduced gap */
-        margin: 0 0.5rem; /* Even spacing */
-        flex: 0 0 auto; /* Prevent shrinking */
+        gap: 0.4rem;
     }
 
     .nav-buttons button {
         padding: 0.3rem 0.6rem;
         font-size: 0.8rem;
-        /* Ensure buttons remain compact */
-        white-space: nowrap;
     }
 
-    /* Menu button adjustments */
     .menu-button {
         display: block;
         padding: 0.3rem;
         font-size: 1.2rem;
-        margin: 0; /* Remove margin */
-        flex: 0 0 auto; /* Prevent shrinking */
-    }
-
-    /* Make layout more compact on very small screens */
-    nav > * {
-        margin: 0 2px; /* Minimal spacing between elements */
     }
 
     /* Sidebar adjustments */
@@ -385,12 +332,11 @@ nav {
 /* Extra small screen optimization */
 @media screen and (max-width: 380px) {
     nav {
-        padding: 0.8rem 0.5rem; /* Even smaller padding */
+        padding: 0.8rem 0.5rem;
     }
 
     .logo {
-        height: 45px; /* Further reduced for very small screens */
-        width: auto;
+        height: 45px;
     }
 
     .nav-buttons button {
@@ -403,19 +349,11 @@ nav {
     }
 }
 
-/* Ensure no horizontal scrolling on any screen size */
-html, body {
-    overflow-x: hidden;
-    width: 100%;
-    max-width: 100%;
-}
-
 @media (max-width: 600px) {
     .popup {
         width: 90%;
         padding: 20px;
         top: 5%;
-        transform: translate(-50%, 0);
         font-size: 14px;
     }
 
@@ -465,7 +403,7 @@ html, body {
     gap: 3rem;
     align-items: flex-start;
     border: none;
-    background: var(--sub-color);
+    background: #333333;
     border-radius: 16px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -494,14 +432,14 @@ html, body {
 .body-building-choices h1 {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--main-color);
+    color: var(--button-color);
     margin-bottom: 1rem;
     letter-spacing: -0.5px;
 }
 
 .body-building-choices p {
     font-size: 1.1rem;
-    color: #4a4a4a;
+    color: var(--sub-color);
     margin-bottom: 1.5rem;
     line-height: 1.7;
 }
@@ -515,7 +453,7 @@ html, body {
     position: relative;
     padding-left: 1.5rem;
     margin-bottom: 1rem;
-    color: #4a4a4a;
+    color: var(--sub-color);
     font-size: 1.05rem;
 }
 
@@ -531,7 +469,7 @@ html, body {
 }
 
 .body-building-choices ul li strong {
-    color: var(--main-color);
+    color: var(--sub-color);
     font-weight: 600;
 }
 

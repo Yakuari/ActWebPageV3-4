@@ -22,7 +22,7 @@ body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: var(--sub-color);
+    background-color: var(--form-color)
 }
 
 /* Header Styles */
@@ -201,7 +201,6 @@ nav {
 .sidebar-close-btn:hover {
     color: var(--button-color);
 }
-
 
 /* Popup Styles */
 .popup {
@@ -435,7 +434,7 @@ html, body {
     gap: 3rem;
     align-items: flex-start;
     border: none;
-    background: var(--sub-color);
+    background: #333333;
     border-radius: 16px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -464,14 +463,14 @@ html, body {
 .fitness-choices h1 {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--main-color);
+    color: var(--button-color);
     margin-bottom: 1rem;
     letter-spacing: -0.5px;
 }
 
 .fitness-choices p {
     font-size: 1.1rem;
-    color: #4a4a4a;
+    color: var(--sub-color);
     margin-bottom: 1.5rem;
     line-height: 1.7;
 }
@@ -485,7 +484,7 @@ html, body {
     position: relative;
     padding-left: 1.5rem;
     margin-bottom: 1rem;
-    color: #4a4a4a;
+    color: var(--sub-color);
     font-size: 1.05rem;
 }
 
@@ -501,7 +500,7 @@ html, body {
 }
 
 .fitness-choices ul li strong {
-    color: var(--main-color);
+    color: var(--sub-color);
     font-weight: 600;
 }
 
