@@ -6,35 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iron Forge Gym</title>
     <link rel="stylesheet" href="src/css/styles.css">
+    <link rel="stylesheet" href="src/css/nav.css">
     <link rel="stylesheet" href="src/css/booking.css">
     <link rel="stylesheet" href="src/css/about_us.css">
-    <style>
-
-    </style>
 </head>
 
 <body>
+
     <header>
         <nav>
             <div class="logo-container">
                 <img src="src/css/images/logo.png" alt="logo" class="logo">
                 <span class="logo-name">Iron Forge Gym</span>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#program">Program</a></li>
+                <li><a href="#subscription">Subscription</a></li>
+                <li><a href="#booking">Booking</a></li>
+                <li><a href="#about-us">About Us</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <button id="show-login">Sign in</button>
+                <button id="show-signup">Sign Up</button>
             </div>
-            <div class="nav-container">
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#program">Program</a></li>
-                    <li><a href="#subscription">Subscription</a></li>
-                    <li><a href="#booking">Booking</a></li>
-                    <li><a href="#about-us">About Us</a></li>
-                </ul>
-                <div class="nav-buttons">
-                    <button id="show-login">Sign in</button>
-                    <button id="show-signup">Sign Up</button>
-                </div>
-            </div>
+            <button class="menu-button" onclick="toggleSidebar()">☰</button>
         </nav>
-    </header>
+        </header>
+
+        <!-- Sidebar -->
+        <ul class="sidebar">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#program">Program</a></li>
+            <li><a href="#subscription">Subscription</a></li>
+            <li><a href="#booking">Booking</a></li>
+            <li><a href="#about-us">About Us</a></li>
+            <button class="sidebar-close-btn">&times;</button>
+        </ul>
 
     <!-- Login Popup -->
     <div class="popup login-popup">
@@ -85,6 +93,8 @@
         </div>
     </div>
 
+    
+
     <main id="home">
         <section class="content">
             <h1>Welcome to Iron Forge Gym,</h1>
@@ -95,13 +105,16 @@
         </section>
     </main>
 
-    <script src="src/js/script1.js"></script>
+</body>
 
-    <!-- Program Section -->
-    <div class="program-title" id="program">
-        <h1>Iron Forge Gym Programs</h1>
-    </div>
-    <section class="program-section">
+</html>
+
+<!-- Program Titles -->
+<div class="program-title" id="program">
+    <h1>Iron Forge Gym Programs</h1>
+</div>
+
+<section class="program-section">
         <div class="program-link">
             <a href="program/bodybuilding.php" class="link">
                 <h1> Bodybuilding Programs</h1>
@@ -120,6 +133,8 @@
         </div>
     </section>
 
+
+    <!-- Subscription Link -->
     <div class="subscription-link" id="subscription">
         <h1>Subscription Plan and Pricing</h1>
 
@@ -227,7 +242,7 @@
         }
     </script>
 
-    <!-- Program Section -->
+    <!-- booking Section -->
     <div class="booking_section" id="booking">
         <div class="booking_top">
             <h1>Make a Booking</h1>
@@ -319,5 +334,7 @@
     </section>
 
 </body>
+
+<script src="src/js/script1.js"></script>
 
 </html>

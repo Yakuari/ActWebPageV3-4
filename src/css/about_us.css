@@ -17,7 +17,6 @@
     padding: 40px;
     margin: 20px 0;
     min-height: 100vh;
-    
 }
 
 .about-us-container div {
@@ -31,14 +30,13 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-
 .about-us-container div:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
 .about-us-container h2 {
-    color:var(--button-hover-color);
+    color: var(--button-hover-color);
     margin-bottom: 20px;
     font-size: 1.8rem; /* Slightly larger for better visibility */
     font-weight: 600;
@@ -90,6 +88,9 @@
     filter: brightness(1.2);
 }
 
+/* Media Queries for Responsive Design */
+
+/* For Tablets and Smaller Devices */
 @media (max-width: 768px) {
     .about-us-container {
         flex-direction: column;
@@ -109,5 +110,39 @@
     .social-icons img {
         width: 35px;
         height: 35px;
+    }
+}
+
+/* For Small Mobile Devices */
+@media (max-width: 480px) {
+    .about-us-container {
+        padding: 20px;
+    }
+
+    .about-us-container div {
+        max-width: 90%; /* Ensures a nice margin */
+        padding: 15px;
+    }
+
+    .about-us-title h1 {
+        font-size: 1.8rem;
+    }
+
+    .about-us-container h2 {
+        font-size: 1.6rem; /* Smaller font for better fit */
+        margin-top: 30px; /* Added margin to avoid overlap with paragraph */
+    }
+
+    .about-us-container p {
+        font-size: 0.9rem;
+    }
+
+    .social-icons {
+        gap: 15px;
+    }
+
+    .social-icons img {
+        width: 30px;
+        height: 30px;
     }
 }
