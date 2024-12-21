@@ -71,6 +71,7 @@ nav {
     transform: translateX(-50%); /* Center the nav links horizontally */
     display: flex;
     gap: 2rem; /* Space between each link */
+    list-style: none;
 }
 
 .nav-links a {
@@ -312,7 +313,7 @@ nav {
     }
 
     .logo-name {
-        display: none;
+        display: block;
     }
 
     /* Button container adjustments */

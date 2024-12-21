@@ -40,7 +40,7 @@ nav {
     width: 100%;
     padding: 1rem 2rem;
     display: flex;
-    justify-content: space-between; /* Spread the logo and buttons */
+    justify-content: space-between;
     align-items: center;
     background-color: var(--main-color);
     position: relative;
@@ -68,17 +68,18 @@ nav {
 .nav-links {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%); /* Center the nav links horizontally */
+    transform: translateX(-50%);
     display: flex;
-    gap: 2rem; /* Space between each link */
+    gap: 2rem;
+    list-style:none;
 }
 
 .nav-links a {
+    position: relative; /* Ensure ::after is relative to each link */
     text-decoration: none;
     color: var(--sub-color);
     font-weight: 500;
     transition: color 0.3s ease;
-    position: relative;
 }
 
 .nav-links a::after {
@@ -99,7 +100,7 @@ nav {
 /* Navigation Buttons */
 .nav-buttons {
     display: flex;
-    gap: 2rem; /* Add gap between buttons */
+    gap: 2rem;
 }
 
 .nav-buttons button {
@@ -120,7 +121,6 @@ nav {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
 
 #show-login {
     background-color: transparent;
@@ -284,60 +284,40 @@ nav {
 @media screen and (max-width: 768px) {
     nav {
         padding: 0.8rem 1rem;
-        width: 100%;
-        /* Ensure the nav bar doesn't overflow */
-        max-width: 100vw;
-        position: relative;
         display: flex;
-        justify-content: space-between; /* This will help space elements evenly */
+        justify-content: space-between;
     }
 
     .nav-links {
         display: none;
     }
 
-    /* Logo adjustments */
     .logo-container {
-        width: auto;
-        flex: 0 0 auto; /* Prevent logo from growing or shrinking */
+        flex: 0 0 auto;
     }
 
     .logo {
-        height: 60px; /* Proportionally reduced for mobile */
-        width: auto;
+        height: 60px;
     }
 
     .logo-name {
-        display: none;
+        display: block;
     }
 
-    /* Button container adjustments */
     .nav-buttons {
         display: flex;
-        gap: 0.4rem; /* Reduced gap */
-        margin: 0 0.5rem; /* Even spacing */
-        flex: 0 0 auto; /* Prevent shrinking */
+        gap: 0.4rem;
     }
 
     .nav-buttons button {
         padding: 0.3rem 0.6rem;
         font-size: 0.8rem;
-        /* Ensure buttons remain compact */
-        white-space: nowrap;
     }
 
-    /* Menu button adjustments */
     .menu-button {
         display: block;
         padding: 0.3rem;
         font-size: 1.2rem;
-        margin: 0; /* Remove margin */
-        flex: 0 0 auto; /* Prevent shrinking */
-    }
-
-    /* Make layout more compact on very small screens */
-    nav > * {
-        margin: 0 2px; /* Minimal spacing between elements */
     }
 
     /* Sidebar adjustments */
@@ -350,12 +330,11 @@ nav {
 /* Extra small screen optimization */
 @media screen and (max-width: 380px) {
     nav {
-        padding: 0.8rem 0.5rem; /* Even smaller padding */
+        padding: 0.8rem 0.5rem;
     }
 
     .logo {
-        height: 45px; /* Further reduced for very small screens */
-        width: auto;
+        height: 45px;
     }
 
     .nav-buttons button {
@@ -368,19 +347,11 @@ nav {
     }
 }
 
-/* Ensure no horizontal scrolling on any screen size */
-html, body {
-    overflow-x: hidden;
-    width: 100%;
-    max-width: 100%;
-}
-
 @media (max-width: 600px) {
     .popup {
         width: 90%;
         padding: 20px;
         top: 5%;
-        transform: translate(-50%, 0);
         font-size: 14px;
     }
 
