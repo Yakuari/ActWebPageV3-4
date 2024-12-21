@@ -1,119 +1,126 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
     // Popups
     const showLoginBtn = document.querySelector("#show-login");
     const showSignupBtn = document.querySelector("#show-signup");
     const loginPopup = document.querySelector(".popup.login-popup");
     const signupPopup = document.querySelector(".popup.signup-popup");
+    const programPopup = document.querySelector(".popup.program-popup");
     const closeBtns = document.querySelectorAll(".popup .close-btn");
     const buyButtons = document.querySelectorAll('.subscription form button');
+    const programButtons = document.querySelectorAll('.view-btn');
+    const programTypeInput = document.getElementById('program-type');
 
     // Sidebar
     const sidebar = document.querySelector('.sidebar');
     const menuButton = document.querySelector('.menu-button');
     const closeButton = document.querySelector('.sidebar-close-btn');
 
-    // Form popup
-    const openFormBtn = document.querySelector("#openFormBtn");
-    const formPopup = document.querySelector("#formPopup");
-    const formCloseBtn = document.querySelector(".popup-form .close-btn");
-
     // Function to close all popups
     function closeAllPopups() {
         loginPopup?.classList.remove("active");
         signupPopup?.classList.remove("active");
-        formPopup?.classList.remove("active");
+        programPopup?.classList.remove("active");
+    }
+
+    // Function to close sidebar
+    function closeSidebar() {
+        sidebar?.classList.remove('active');
     }
 
     // Toggle popup visibility
     function togglePopup(popup) {
+        if (!popup) return; // Guard clause
+        
         if (popup.classList.contains("active")) {
-            popup.classList.remove("active"); // Close the popup if already active
+            popup.classList.remove("active");
         } else {
-            closeAllPopups(); // Close any other active popups
-            popup.classList.add("active"); // Open the designated popup
+            closeAllPopups();
+            closeSidebar(); // Close sidebar when opening popup
+            popup.classList.add("active");
         }
     }
 
     // Event listeners for opening login/signup popups
-    if (showLoginBtn) {
-        showLoginBtn.addEventListener("click", function () {
-            togglePopup(loginPopup);
-        });
-    }
+    showLoginBtn?.addEventListener("click", (e) => {
+        e.preventDefault();
+        togglePopup(loginPopup);
+    });
 
-    if (showSignupBtn) {
-        showSignupBtn.addEventListener("click", function () {
-            togglePopup(signupPopup);
-        });
-    }
+    showSignupBtn?.addEventListener("click", (e) => {
+        e.preventDefault();
+        togglePopup(signupPopup);
+    });
 
-    // Buy buttons now also trigger signup popup
+    // Buy buttons event listeners
     buyButtons.forEach(button => {
         button.addEventListener('click', (e) => {
-            e.preventDefault(); // Prevent form submission
+            e.preventDefault();
             togglePopup(signupPopup);
         });
     });
 
-    // Event listeners for closing popups
+   // Program buttons event listeners (updated)
+programButtons.forEach(button => {
+    button.addEventListener('click', function () {
+        // Optional: If you want to store program type or other data, you can pass it here
+        const programType = this.dataset.program;
+        programTypeInput.value = programType; // Set the program type if needed
+
+        // Open the signup popup just like the other buttons
+        togglePopup(signupPopup);
+    });
+});
+
+
+    // Popup close buttons
     closeBtns.forEach((btn) => {
-        btn.addEventListener("click", function () {
+        btn.addEventListener("click", function() {
             const popup = this.closest(".popup");
             popup?.classList.remove("active");
         });
     });
 
-    // Event listeners for opening form popup
-    if (openFormBtn) {
-        openFormBtn.addEventListener("click", function () {
-            formPopup.classList.add("active");
-        });
-    }
+    // Close popups and sidebar when clicking outside
+    document.addEventListener("click", function(event) {
+        const target = event.target;
+        const isPopupClick = target.closest(".popup");
+        const isLoginClick = target.matches("#show-login");
+        const isSignupClick = target.matches("#show-signup");
+        const isProgramClick = target.closest('.view-btn');
+        const isBuyButtonClick = target.closest('.subscription form button');
+        const isSidebarClick = target.closest('.sidebar');
+        const isMenuButtonClick = target.closest('.menu-button');
 
-    // Close the form popup when the close button is clicked
-    if (formCloseBtn) {
-        formCloseBtn.addEventListener("click", function () {
-            formPopup.classList.remove("active");
-        });
-    }
-
-    // Close popups when clicking outside
-    document.addEventListener("click", function (event) {
-        if (
-            !event.target.closest(".popup") &&
-            !event.target.matches("#show-login") &&
-            !event.target.matches("#show-signup") &&
-            !event.target.closest('.subscription form button') &&
-            !event.target.closest("#formPopup") &&
-            !event.target.matches("#openFormBtn")
-        ) {
+        // Close popups if clicking outside
+        if (!isPopupClick && !isLoginClick && !isSignupClick && !isProgramClick && !isBuyButtonClick) {
             closeAllPopups();
+        }
+
+        // Close sidebar if clicking outside
+        if (!isMenuButtonClick && !isSidebarClick) {
+            closeSidebar();
         }
     });
 
     // Smooth scrolling for home link
     const homeLink = document.querySelector('.nav-links li a[href="index.php"]');
-    if (homeLink) {
-        homeLink.addEventListener("click", (e) => {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-            });
+    homeLink?.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
         });
-    }
+    });
 
-    // Toggle sidebar
-    if (menuButton && sidebar) {
-        menuButton.addEventListener('click', function () {
-            sidebar.classList.toggle('active');
-        });
-    }
+    // Sidebar toggle
+    menuButton?.addEventListener('click', (e) => {
+        e.preventDefault();
+        sidebar?.classList.toggle('active');
+        closeAllPopups(); // Close popups when opening sidebar
+    });
 
-    // Close sidebar when close button is clicked
-    if (closeButton && sidebar) {
-        closeButton.addEventListener('click', function () {
-            sidebar.classList.remove('active');
-        });
-    }
+    // Sidebar close button
+    closeButton?.addEventListener('click', () => {
+        closeSidebar();
+    });
 });
