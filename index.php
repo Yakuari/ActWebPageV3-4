@@ -105,36 +105,60 @@
         </section>
     </main>
 
-</body>
-
-</html>
-
-<!-- Program Titles -->
+<!-- Program Section -->
 <div class="program-title" id="program">
     <h1>Iron Forge Gym Programs</h1>
 </div>
 
 <section class="program-section">
-        <div class="program-link">
-            <a href="program/bodybuilding.php" class="link">
-                <h1> Bodybuilding Programs</h1>
-                <p>Designed to help you build muscle, improve strength, and sculpt your physique with tailored workouts and expert guidance.</p>
-            </a>
-
-            <a href="program/fitness.php" class="link">
-                <h1>Fitness Challenges</h1>
-                <p>Engaging and fun competitions that motivate you to break barriers, improve performance, and achieve milestones.</p>
-            </a>
-
-            <a href="program/weightloss.php" class="link">
-                <h1>Weight Loss Programs</h1>
-                <p>Focused on shedding pounds and boosting confidence through customized training, balanced nutrition, and ongoing support.</p>
-            </a>
+    <div class="program-link">
+        <div class="program-card">
+            <h1>Bodybuilding Programs</h1>
+            <p>Designed to help you build muscle, improve strength, and sculpt your physique with tailored workouts and expert guidance.</p>
+            <button class="view-btn" data-program="bodybuilding">View Program</button>
         </div>
-    </section>
+
+        <div class="program-card">
+            <h1>Fitness Challenges</h1>
+            <p>Engaging and fun competitions that motivate you to break barriers, improve performance, and achieve milestones.</p>
+            <button class="view-btn" data-program="fitness">View Program</button>
+        </div>
+
+        <div class="program-card">
+            <h1>Weight Loss Programs</h1>
+            <p>Focused on shedding pounds and boosting confidence through customized training, balanced nutrition, and ongoing support.</p>
+            <button class="view-btn" data-program="weightloss">View Program</button>
+        </div>
+    </div>
+</section>
+
+<!-- Signup Form Popup (for Program Inquiry) -->
+<div class="popup signup-popup">
+    <div class="close-btn">&times;</div>
+    <div class="form">
+        <h2>Sign Up for the Program</h2>
+        <form action="config/system_config_program.php" method="POST">
+            <div class="form-element">
+                <input type="text" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-element">
+                <input type="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-element">
+                <input type="text" name="phone" placeholder="Your Phone Number" required>
+            </div>
+            <div class="form-element">
+                <input type="hidden" name="program" id="program-type" required>
+            </div>
+            <button type="submit" name="submit">Submit</button>
+        </form>
+    </div>
+</div>
 
 
-    <!-- Subscription Link -->
+
+
+    <!-- Subscription Section -->
     <div class="subscription-link" id="subscription">
         <h1>Subscription Plan and Pricing</h1>
 
