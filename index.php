@@ -1,38 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iron Forge Gym</title>
     <link rel="stylesheet" href="src/css/styles.css">
-    <style>
-        
-    </style>
+    <link rel="stylesheet" href="src/css/nav.css">
+    <link rel="stylesheet" href="src/css/booking.css">
+    <link rel="stylesheet" href="src/css/about_us.css">
 </head>
+
 <body>
+
     <header>
         <nav>
             <div class="logo-container">
-                <a href="#home">
                 <img src="src/css/images/logo.png" alt="logo" class="logo">
-                </a>
                 <span class="logo-name">Iron Forge Gym</span>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#program">Program</a></li>
+                <li><a href="#subscription">Subscription</a></li>
+                <li><a href="#booking">Booking</a></li>
+                <li><a href="#about-us">About Us</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <button id="show-login">Sign in</button>
+                <button id="show-signup">Sign Up</button>
             </div>
-            <div class="nav-container">
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#program">Program</a></li>
-                    <li><a href="#subscription">Subscription</a></li>
-                    <li><a href="#booking">Booking</a></li>
-                    <li><a href="#about-us">About Us</a></li>
-                </ul>
-                <div class="nav-buttons">
-                    <button id="show-login">Sign in</button>
-                    <button id="show-signup">Sign Up</button>
-                </div>
-            </div>
+            <button class="menu-button" onclick="toggleSidebar()">☰</button>
         </nav>
-    </header>
+        </header>
+
+        <!-- Sidebar -->
+        <ul class="sidebar">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#program">Program</a></li>
+            <li><a href="#subscription">Subscription</a></li>
+            <li><a href="#booking">Booking</a></li>
+            <li><a href="#about-us">About Us</a></li>
+            <button class="sidebar-close-btn">&times;</button>
+        </ul>
 
     <!-- Login Popup -->
     <div class="popup login-popup">
@@ -46,7 +56,7 @@
                 <div class="form-element">
                     <input type="password" name="password" placeholder="Password" required>
                 </div>
-                <button type="submit">Sign In</button>
+                <button type="submit" name="submit">Sign In</button>
                 <div class="form-element">
                     <a href="forgot-password.php">FORGOT PASSWORD?</a>
                 </div>
@@ -61,7 +71,7 @@
             <form action="config/system_config_signup.php" method="POST">
                 <h2>Register Here</h2>
                 <div class="form-element">
-                    <input type="text" name="username" placeholder="Username" required>
+                    <input type="text" name="uid" placeholder="Username" required>
                 </div>
                 <div class="form-element">
                     <input type="email" name="email" placeholder="Email" required>
@@ -71,31 +81,41 @@
                     <select name="type">
                         <option value="manager">Manager</option>
                         <option value="user">User</option>
+                        <option value="admin">Admin</option>
                     </select><br>
                 </div>
-                <button type="submit">Sign Up</button>
+                <div class="form-element">
+                    <label for="months">How many Months:</label>
+                    <input type="number" name="months" placeholder="Enter how many months" min="1" required>
+                </div>
+                <button type="submit" name="submit">Sign Up</button>
             </form>
         </div>
     </div>
+
+    
 
     <main id="home">
         <section class="content">
             <h1>Welcome to Iron Forge Gym,</h1>
             <p>Your fitness journey starts here. From effortless class bookings to personalized progress tracking,
-            we've got everything you need to stay on top of your game.
-            Explore, engage, and unlock your full potential.
-            Remember, strong today, stronger tomorrow!</p>
+                we've got everything you need to stay on top of your game.
+                Explore, engage, and unlock your full potential.
+                Remember, strong today, stronger tomorrow!</p>
         </section>
     </main>
 
-    <script src="src/js/script1.js"></script>
+</body>
 
-    <!-- Program Section -->
-    <div class="program-title" id="program">
-            <h1>Iron Forge Gym Programs</h1>
-        </div>
-        <section class="program-section">
-            <div class="program-link">
+</html>
+
+<!-- Program Titles -->
+<div class="program-title" id="program">
+    <h1>Iron Forge Gym Programs</h1>
+</div>
+
+<section class="program-section">
+        <div class="program-link">
             <a href="program/bodybuilding.php" class="link">
                 <h1> Bodybuilding Programs</h1>
                 <p>Designed to help you build muscle, improve strength, and sculpt your physique with tailored workouts and expert guidance.</p>
@@ -111,11 +131,12 @@
                 <p>Focused on shedding pounds and boosting confidence through customized training, balanced nutrition, and ongoing support.</p>
             </a>
         </div>
-        </section>
+    </section>
 
-        <!-- Subscription Section -->
-        <div class="subscription-link" id="subscription">
-        <h1>SUBSCRIPTION PLAN AND PRICING</h1>
+
+    <!-- Subscription Link -->
+    <div class="subscription-link" id="subscription">
+        <h1>Subscription Plan and Pricing</h1>
 
         <!-- Slider container for subscription plans -->
         <div class="slider">
@@ -221,99 +242,99 @@
         }
     </script>
 
-
-    <!-- Booking Section -->
+    <!-- booking Section -->
     <div class="booking_section" id="booking">
-    <div class="booking_top">
-        <h1>Make a Booking</h1>
-        <p>Unlock Your Full Potential and Transform Your Fitness Journey – Book Your Spot at Our Gym Today and Start Achieving Your Goals!</p>
-    </div>
+        <div class="booking_top">
+            <h1>Make a Booking</h1>
+            <p>Unlock Your Full Potential and Transform Your Fitness Journey – Book Your Spot at Our Gym Today and Start Achieving Your Goals!</p>
+        </div>
 
-    <div class="booking_form">
-        <form action="#" method="post">
-            <div class="booking-group">
-                <label for="name">Name</label>
-                <input type="text" name="name" required>
-            </div>
-            <div class="booking-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" name="phone" pattern="[0-9]{10}" required>
-            </div>
-            <div class="booking-group">
-                <label for="email">Email</label>
-                <input type="email" name="email" required>
-            </div>
-            <div class="booking-group">
-                <label for="date">Date</label>
-                <input type="date" name="date" required>
-            </div>
-            <div class="booking-group">
-                <button type="submit">Submit</button>
-            </div>
-        </form>
-    </div>
-</div>
-
-
-<!-- About Us Section -->
-<div class="about-us-title" id="about-us">
-    <h1>ABOUT US</h1>
-</div>
-
-<section class="about-us-container">
-    <!-- Our Story Section -->
-    <div class="about-us-story">
-        <h2>OUR STORY</h2>
-        <p>
-            Established in 2024, Iron Forge Gym started as a small community gym with a big dream:
-            to make high-quality fitness accessible to everyone.
-            Today, we’ve grown into a vibrant hub for fitness enthusiasts of all levels,
-            offering state-of-the-art facilities and a supportive environment.
-        </p>
-    </div>
-
-    <!-- What Drives Us Forward Section -->
-    <div class="about-us-mission">
-        <h2>What Drives Us Forward</h2>
-        <p>
-            At Iron Forge Gym, we are passionate about promoting health, fitness, and overall well-being.
-            Our journey began with the belief that everyone deserves a supportive environment
-            to achieve their fitness goals and lead a healthier lifestyle.
-        </p>
-    </div>
-
-    <!-- Join Our Community Section -->
-    <div class="about-us-join">
-        <h2>JOIN OUR COMMUNITY</h2>
-        <p>
-            At Iron Forge Gym, you’re not just a member; you’re part of a family.
-            We’re here to guide, motivate, and celebrate your progress every step of the way.
-            Whether you're a beginner or a seasoned athlete, we have something for everyone.
-        </p>
-    </div>
-
-    <!-- Contact Us Section -->
-    <div class="about-us-contacts">
-        <h2>CONTACT US</h2>
-        <p><strong>Phone:</strong> +1 800 123 4567</p>
-        <p><strong>Email:</strong> contact@ironforgegym.com</p>
-        <div class="social-icons">
-            <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
-                <img src="src/css/images/fb_logo.png" alt="Logo" width="30">
-            </a>
-            <a href="https://www.youtube.com" target="_blank" aria-label="YouTube">
-                <img src="src/css/images/yt_logoo.png" alt="Logo" width="30">
-            </a>
-            <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
-                <img src="src/css/images/ig_logo.png" alt="Logo" width="30">
-            </a>
-            <a href="https://twitter.com" target="_blank" aria-label="Twitter">
-                <img src="src/css/images/tt_logo.png" alt="Logo" width="30">
-            </a>
+        <div class="booking_form">
+            <form action="config/system_config_booking.php" method="POST">
+                <div class="booking-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="booking-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="text" id="phone" name="phone" required>
+                </div>
+                <div class="booking-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="booking-group">
+                    <label for="date">Date</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="booking-group">
+                    <button type="submit" name="submit">Submit</button>
+                </div>
+            </form>
         </div>
     </div>
-</section>
 
+    <!-- About Us Section -->
+    <div class="about-us-title" id="about-us">
+        <h1>ABOUT US</h1>
+    </div>
+
+    <section class="about-us-container">
+        <!-- Our Story Section -->
+        <div class="about-us-story">
+            <h2>OUR STORY</h2>
+            <p>
+                Established in 2024, Iron Forge Gym started as a small community gym with a big dream:
+                to make high-quality fitness accessible to everyone.
+                Today, we’ve grown into a vibrant hub for fitness enthusiasts of all levels,
+                offering state-of-the-art facilities and a supportive environment.
+            </p>
+        </div>
+
+        <!-- What Drives Us Forward Section -->
+        <div class="about-us-mission">
+            <h2>What Drives Us Forward</h2>
+            <p>
+                At Iron Forge Gym, we are passionate about promoting health, fitness, and overall well-being.
+                Our journey began with the belief that everyone deserves a supportive environment
+                to achieve their fitness goals and lead a healthier lifestyle.
+            </p>
+        </div>
+
+        <!-- Join Our Community Section -->
+        <div class="about-us-join">
+            <h2>JOIN OUR COMMUNITY</h2>
+            <p>
+                At Iron Forge Gym, you’re not just a member; you’re part of a family.
+                We’re here to guide, motivate, and celebrate your progress every step of the way.
+                Whether you're a beginner or a seasoned athlete, we have something for everyone.
+            </p>
+        </div>
+
+        <!-- Contact Us Section -->
+        <div class="about-us-contacts">
+            <h2>CONTACT US</h2>
+            <p><strong>Phone:</strong> +1 800 123 4567</p>
+            <p><strong>Email:</strong> contact@ironforgegym.com</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+                    <img src="src/css/images/fb_logo.png" alt="Logo" width="30">
+                </a>
+                <a href="https://www.youtube.com" target="_blank" aria-label="YouTube">
+                    <img src="src/css/images/yt_logoo.png" alt="Logo" width="30">
+                </a>
+                <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+                    <img src="src/css/images/ig_logo.png" alt="Logo" width="30">
+                </a>
+                <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+                    <img src="src/css/images/tt_logo.png" alt="Logo" width="30">
+                </a>
+            </div>
+        </div>
+    </section>
 
 </body>
+
+<script src="src/js/script1.js"></script>
+
 </html>
