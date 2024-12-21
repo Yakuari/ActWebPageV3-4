@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bodybuilding Program</title>
-    <link rel="stylesheet" href="../src/css/bodybuilding.css">
+    <link rel="stylesheet" href="../src/css/fitness.css">
     
 </head>
 
@@ -97,7 +97,7 @@
     </div>
 
     <!-- Exercise Sections -->
-    <div class="body-building-choices">
+    <div class="fitness-choices">
         <img src="../src/css/images/pushup.jpg" alt="Incline Bench Press">
         <div>
             <h1>PUSH UP</h1>
@@ -111,7 +111,7 @@ Push-ups are one of the most versatile and widely performed exercises, requiring
         </div>
     </div>
 
-    <div class="body-building-choices">
+    <div class="fitness-choices">
     <img src="../src/css/images/squat1.jpg" alt="Lat Pulldown">
     <div>
         <h1>SQUAT</h1>
@@ -125,7 +125,7 @@ Push-ups are one of the most versatile and widely performed exercises, requiring
 </div>
 
 
-    <div class="body-building-choices">
+    <div class="fitness-choices">
         <img src="../src/css/images/planks.jpg" alt="Squat">
         <div>
             <h1>PLANKS</h1>
@@ -139,7 +139,7 @@ Planks are more effective than traditional sit-ups for building core strength an
         </div>
     </div>
 
-    <div class="body-building-choices">
+    <div class="fitness-choices">
         <img src="../src/css/images/jumping-jacks.jpg" alt="Lateral Raise">
         <div>
             <h1>JUMPING JACKS</h1>
@@ -153,7 +153,7 @@ Jumping jacks are a classic cardio workout that can be done anywhere without equ
         </div>
     </div>
 
-    <div class="body-building-choices">
+    <div class="fitness-choices">
         <img src="../src/css/images/pull-ups.jpg" alt="Deadlift">
         <div>
             <h1>PULL-UPS</h1>
