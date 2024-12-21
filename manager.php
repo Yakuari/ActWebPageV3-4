@@ -146,23 +146,26 @@ $users = $bookingManager->getUsers();
 </head>
 
 <body>
-    <header>
-        <nav>
+<header>
+    <nav>
+        <div class="nav-container">
             <div class="logo-container">
-                <img src="src/css/images/logo.png" alt="logo" class="logo">
-                <span class="logo-name">Iron Forge Gym</span>
+                <img src="./src//css/images/logo.png" alt="Logo" class="logo">
+                <span class="logo-name">IRON FORGE GYM</span>
             </div>
-            <div class="hamburger">&#9776;</div>
-            <div class="nav-container">
-                <ul class="nav-links">
-                    <li><a href="#">Dashboard</a></li>
-                    <li><a href="index.php">Logout</a></li>
-                </ul>
+            <div class="nav-buttons">
+                <a href="#dashboard">Dashboard</a>
+                <a href="../index.php">Log Out</a>
             </div>
-        </nav>
-    </header>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+</header>
 
-    <h1>Manager Dashboard</h1>
+<h1 class="dashboard-title">MANAGER DASHBOARD</h1>
+
 
     <main>
         <!-- Display success or error messages -->
