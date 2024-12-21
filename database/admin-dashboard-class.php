@@ -24,34 +24,23 @@ $users = $dashboard->fetchUsers();
 </head>
 
 <body>
-    <!-- Navigation Bar -->
-    <header>
-        <nav>
-            <div class="logo-container">
-                <img src="../src/css/images/logo.png" alt="logo" class="logo">
-                <span class="logo-name">Iron Forge Gym</span>
-            </div>
-            <div class="nav-container">
-                <ul class="nav-links">
-                    <li><a href="../index.php">Home</a></li>
-                    <li><a href="../index.php#program">Program</a></li>
-                    <li><a href="../index.php#subscription">Subscription</a></li>
-                    <li><a href="../index.php#booking">Booking</a></li>
-                    <li><a href="../index.php#about-us">About Us</a></li>
-                </ul>
-            </div>
-            <div class="dropdown">
-                <span>Admin</span>
-                <div class="dropdown-menu">
-                    <a href="#">Dashboard</a>
-                    <a href="../index.php">Logout</a>
-                </div>
-            </div>
-        </nav>
-    </header>
+<!-- Navigation Bar -->
+<header>
+    <nav>
+        <div class="logo-container">
+            <img src="../src/css/images/logo.png" alt="Logo" class="logo">
+            <span class="logo-name">Iron Forge Gym</span>
+        </div>
+        <div class="nav-buttons">
+            <a href="#">Dashboard</a>
+            <a href="../index.php">Logout</a>
+        </div>
+    </nav>
+</header>
 
-    <!-- Main Content -->
-    <h1>Admin Dashboard</h1>
+<!-- Dashboard Title -->
+<h1 class="dashboard-title">Admin Dashboard</h1>
+
 
     <table>
         <thead>
