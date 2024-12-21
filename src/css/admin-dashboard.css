@@ -17,6 +17,7 @@ body {
     color: var(--color-white);
 }
 
+/* Header and Dashboard Title */
 h1 {
     text-align: center;
     padding: 20px 0;
@@ -37,53 +38,108 @@ header {
 
 nav {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     padding: 10px 20px;
 }
 
-.nav-container {
-    flex: 1;
+.logo-container {
     display: flex;
-    justify-content: center; /* Center the navigation links */
+    align-items: center;
 }
 
-.nav-links {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    gap: 20px;
-    margin-left: -25rem; /* Move the nav-links slightly to the left */
+.logo {
+    width: 100px;  /* Smaller logo size */
+    height: auto;
 }
 
-
-.nav-links li {
-    position: relative;
-}
-
-.nav-links a {
-    text-decoration: none;
+.logo-name {
+    font-size: 1.5rem;
+    font-weight: 700;
     color: var(--color-gold);
-    font-weight: bold;
-    font-size: 16px;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    margin-left: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: nowrap;
 }
 
-.nav-links a:hover {
-    background-color: var(--color-gray);
+/* Navigation Buttons (Dashboard and Logout) */
+/* General Button Styles */
+.nav-buttons a {
+    padding: 10px 20px; /* Padding for a more balanced button size */
+    font-size: 14px; /* Smaller font size */
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    border: 2px solid var(--color-gold-dark); /* Clear outline around the buttons */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: inline-block;
 }
-/* User Dropdown Menu */
+
+/* Hover Effect */
+.nav-buttons a:hover {
+    background-color: var(--color-gold-dark); /* Change background color on hover */
+    color: var(--color-black); /* Change text color on hover */
+}
+
+/* Dashboard button style */
+.nav-buttons {
+    display: flex;
+    gap: 15px; /* Space between the buttons */
+    justify-content: center; /* Center the buttons horizontally */
+    align-items: center; /* Align them vertically */
+}
+
+/* Dashboard button style */
+.nav-buttons .dashboard-btn {
+    background-color: var(--color-gold);
+    color: var(--color-black);
+}
+
+.nav-buttons .dashboard-btn:hover {
+    background-color: var(--color-black);
+    color: var(--color-gold);
+}
+
+/* Logout button style */
+.nav-buttons .logout-btn {
+    background-color: #FF4C4C;
+    color: var(--color-white);
+}
+
+.nav-buttons .logout-btn:hover {
+    background-color: #D43F3F;
+    color: var(--color-white);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .nav-buttons {
+        flex-direction: row; /* Ensure buttons stay beside each other on mobile */
+        gap: 10px; /* Reduced gap between buttons */
+        width: 100%; /* Ensure buttons fit within the width of the screen */
+        padding: 5px 0; /* Padding on top and bottom */
+    }
+
+    .nav-buttons a {
+        font-size: 10px; /* Smaller font size for mobile */
+        padding: 6px 10px; /* Smaller padding for compactness */
+        width: auto; /* Let the buttons resize automatically */
+        text-align: center; /* Center-align text */
+    }
+}
+
+/* Dropdown Menu */
 .dropdown {
     position: absolute;
-    right: 20px; /* Move the admin dropdown to the right */
+    right: 20px;
     top: 50%;
     transform: translateY(-50%);
 }
 
-/* Existing styles for the dropdown menu */
 .dropdown > span {
     color: var(--color-gold);
     cursor: pointer;
@@ -105,7 +161,6 @@ nav {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     z-index: 1000;
-    overflow: hidden;
 }
 
 .dropdown:hover .dropdown-menu,
@@ -123,34 +178,6 @@ nav {
 
 .dropdown-menu a:hover {
     background-color: var(--color-gray);
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-}
-
-.logo {
-    margin-left: 20px;
-    width: 125px;
-    height: auto;
-    display: flex;
-    align-items: center;
-}
-
-.logo-name {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--color-gold);
-    margin-left: 15px;
-    letter-spacing: 2px;         
-    text-transform: uppercase;
-    transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.logo-name:hover {
-    color: var(--color-gold);
-    transform: scale(1.05);
 }
 
 /* Table Styles */
@@ -270,5 +297,15 @@ p[style*="color: red"] {
         flex-direction: column;
         align-items: center;
         gap: 10px;
+    }
+
+    .nav-buttons {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .logo-name {
+        font-size: 1.2rem;
     }
 }
