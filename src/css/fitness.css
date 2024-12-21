@@ -81,10 +81,6 @@ nav {
     position: relative;
 }
 
-.nav-links a:hover {
-    color: var(--button-color);
-}
-
 .nav-links a::after {
     content: '';
     position: absolute;

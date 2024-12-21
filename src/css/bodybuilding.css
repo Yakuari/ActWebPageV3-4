@@ -74,14 +74,11 @@ nav {
 }
 
 .nav-links a {
+    position: relative; /* Ensure ::after is relative to each link */
     text-decoration: none;
     color: var(--sub-color);
     font-weight: 500;
     transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: var(--button-color);
 }
 
 .nav-links a::after {
